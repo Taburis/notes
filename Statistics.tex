@@ -1,0 +1,44 @@
+
+\documentclass[amsmath,amssymb,aps,floatfix,twocolumn]{revtex4-1}
+
+\input{setup.tex}
+
+\title{Statistics}
+
+\begin{document}
+\maketitle
+
+\section{Conventions}
+\begin{itemize}
+	\item $X\sim f(x,\xi)$: a random variables $X$ with the PDF $f(x,\xi)$.
+\end{itemize}
+\section{Distributions}
+\subsection{Normal distributions}]
+
+\begin{definition}[1-d Gassian]
+A random variable $X\sim N(\mu,\sigma^2)$,
+\begin{equation}
+N(\mu,\sigma^2)(x) = \frac{1}{\sqrt{2\pi}\sigma^2}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\},
+\end{equation}
+where $\mu, \sigma$ are the mean and variance respectively, called the Gassisan random variable. Furthermore, it is called normal random variable if $X\sim N(0,1)$.
+\end{definition}
+
+\begin{definition}[n-d Gassian]
+A random varialbe $Y$ is called n-dimensional Gassian random variable if $\boldsymbol{X}=(X_1,X_2,...,X_n)$, where $X_i\iid\sim N(\mu_i,\sigma_i^2)$.
+\end{definition}
+
+\begin{theorem} Assume $X_i\iid\sim N(\mu_i,\sigma_i^2)$, $a_i\in\realR$, and $Y=\sum_{i=1}^na_iX_i$, then:
+	\begin{equation}
+		\begin{aligned}
+		Y &\sim N\left(\sum_{i=1}^na_i\mu_i,\sum_{i=1}^na^2_i\sigma_i^2\right).
+		\end{aligned}
+	\end{equation}
+\end{theorem}
+\begin{proof}
+We first to show that $X_i+X_j\sim N(\mu_i+\mu_j,\sigma_i^2+\sigma^2_j)$. Actually 
+\end{proof}
+
+
+\subsection{\texorpdfstring{$\chi^2$} distributions}
+
+\end{document}
