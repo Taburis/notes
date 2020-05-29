@@ -1,0 +1,14 @@
+\section{Functional Analysis}
+
+\subsection{Measure Theory}
+
+\begin{definition}
+Given measurable spaces $(X_1,\mathfrak{S}_1)$ and $(X_2,\mathfrak{S}_2)$, a $(\mathfrak{S}_1,\mathfrak{S}_2)$-measurable functoin $F:X_1\to X_2$, and a non-negative measure $\mu$ defined on $\mathfrak{S}_1$, a \textbf{pushforward measure} $F_*\mu$ is a natural induced as
+\begin{equation}
+F_*\mu(A) = (\mu\circ F^{-1})(A)=\mu\left(F^{-1}(A)\right), \quad \forall A\in\mathfrak{S}_2.
+\end{equation} 
+\end{definition}
+With this defintion, a measurable function $g$ on $X_2$ is integrable respect to the pushforward measure if and only if the composed function $g\circ F$ is integrable with respect to $\mu$, and
+\begin{equation}
+\int_{X_2}g(\omega_2)d(F_*\mu) = \int_{F^{-1}(X_2)}(g\circ F^{-1})(\omega_1) d\mu
+\end{equation}
