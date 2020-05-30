@@ -1,0 +1,22 @@
+\section{Maximum Likelihood Methods}
+
+\subsection{Maximum Likelihood Estimation}
+\begin{definition}
+Consider the case that $X\sim f(x;\theta)$ where $\theta$ is a parameter, the $n$ samples $x_i,i=1,\dots,n$ on $X$ at a fix parameter value, say $\theta = \theta_0$. The \textbf{likelihood function} $L(\theta;\boldsymbol{x})$ is defined as
+\begin{equation}
+L(\theta;\boldsymbol{x})=\prod_{i=1}^nf(x_i;\theta).
+\end{equation}
+A \textbf{log likelihood function} $l(\theta;\boldsymbol{x})$ is
+\begin{equation}
+l(\theta;\boldsymbol{x})=\log L(\theta;\boldsymbol{x})=\sum_{i=1}^n\log f(x_i;\theta).
+\end{equation}
+\end{definition}
+
+\begin{definition}(Regularity Conditions)
+Given a PDF $f(x;\theta)$ with the set $\Theta$ as the domain of $\theta$, the regularity conditions for this PDF are
+\begin{enumerate}
+	\item Distinctive: $f(x;\theta)\ne f(x;\theta')$ if $\theta\ne\theta'$;
+	\item The support of $f(x;\theta)$ independnt on $\theta$;
+	\item The $\theta_0$ is a interior point of $\Theta$.
+\end{enumerate}
+\end{definition}

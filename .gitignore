@@ -1,0 +1,12 @@
+*.bbl
+*.blg
+*.gz
+*.log
+*.out
+*.idx
+*.ilg
+*.aux
+*.fls
+*.fdb_latexmk
+*.ind
+*Notes.bib

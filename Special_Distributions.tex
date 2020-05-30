@@ -1,0 +1,77 @@
+
+\section{Distributions}
+
+\subsection{Poisson Distribution}
+\begin{definition}[Poisson assumption]
+Assume a integer valued random variable $K$ with a PDF $g(k,h)$ where an parameter $h$ satisfying the following assumption when $h\to 0$:
+\begin{enumerate}
+\item $g(1,h) = \lambda h+o(h)$;
+\item $\sum_{k=2}^{\infty}g(k,h)=o(h)$;
+\item $g(0,h)g(0,w)=g(0,h+w)$;\label{eq:poisson_hpyer3}
+\item $g(x,w+h)=g(x,w)g(0,h)+g(x-1,w)g(1,h)$.\label{eq:poisson_hpyer4}
+\end{enumerate}
+Then $g(x,w)$ is a \textbf{Poisson distribution}:
+\begin{equation}
+g(x,w)=\frac{1}{x!}(\lambda w)^xe^{-\lambda w},\quad x=1,2,3,\dots.
+\end{equation}
+\end{definition}
+\begin{proof}
+The $o(h)$ means that $\lim_{h\to 0}o(h)/h=0$. 
+\begin{equation*}
+\begin{aligned}
+g(0,w+h)&=g(0,w)[1-\lambda h-o(h)],\\
+\frac{dg(0,w)}{dw}&=\lambda g(0,w),\\
+g(0,w)&=ce^{-\lambda w}.
+\end{aligned}
+\end{equation*}
+Repeat the similar procedure to Eq.\ref{eq:poisson_hpyer4}, we get the formula:
+\begin{equation*}
+\partial_wg(x,w)=-\lambda g(x,w)+\lambda g(x-1,w).
+\end{equation*}
+Using this equation, the conclusion can be approved by induction.
+\end{proof}
+Suppose $g(x,h)$ is the probability of $x$ changes in a interval with a width $h$, if it satisfies the Poisson's assumptions, it means that the event that changing of $x$ depends only on the width of the interval and this probability can be approximated linearly when $h$ is small enough. One example of many applications satisfying the Poisson's assumptions is that the atomic decay with time. In this case, $g(x,h)$ represents the number of decays $x$ happened inside of time interval $h$.
+
+\subsection{Normal distributions}
+\begin{definition}
+\index{Normal Distributions}
+A \textbf{normal distribution} with mean $\mu$ and variance $\sigma^2$, denoted as $N(\mu,\sigma^2)$ is 
+\begin{equation}
+N(\mu,\sigma^2)(x) = \frac{1}{\sqrt{2\pi}\sigma^2}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}.
+\end{equation}
+If a random variable $X\sim N(\mu,\sigma^2)$, this variable is called \textbf{Gaussian}. And we call $X$ as \textbf{standard normal} variable if $X\sim N(0,1)$.
+A random varialbe $Y$ is called n-dimensional Gassian random variable if $\boldsymbol{X}=(X_1,X_2,...,X_n)$, where $X_i\sim N(\mu_i,\sigma_i^2)$ and $X_i\ci X_j,\forall i\ne j$.
+\end{definition}
+
+\begin{theorem} 
+Assume $X_i\sim N(\mu_i,\sigma_i^2)$, $X_i\ci X_j,\forall i\ne j$, $a_i\in\realR$, and $Y=\sum_{i=1}^na_iX_i$, then:
+	\begin{enumerate}
+		\item The moment generating function of $X$ is $M_X(t)=\exp(\mu t+\sigma^2t^2/2)$
+		\item The PDF of $Y$ is
+			\begin{equation}
+			\begin{aligned}
+			Y &\sim N\left(\sum_{i=1}^na_i\mu_i,\sum_{i=1}^na^2_i\sigma_i^2\right).
+			\end{aligned}
+			\end{equation}
+		\item If $Z_i=(X_i-\mu_i)/\sigma_i$, then $Z_i\sim N(0,1)$;
+		\item $Z^2_i\sim \chi^2(1)$, and if $Z=\sum_{i=1}^nZ_i^2$, then $Z\sim \chi^2(n)$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof} Just briefly draw the line of the proof:
+	\begin{enumerate}
+		\item It follows from the straight forward calculation of $\mathbb{E}(e^{Xt})$.
+		\item Consider $n=2$ case, since $X_i$ are independent, the moment generating function is
+		\begin{equation*}
+		\begin{aligned}
+		M_{a_1X_1+a_2X_2}(t)&=M_{a_1X_1}(t)M_{a_2X_2}(t)\\
+		&=\exp\left[a_1\mu_1+a_2\mu_2+\frac{(a_1^2\sigma_1^2+a_2^2\sigma_2^2)t^2}{2}\right],
+		\end{aligned}
+		\end{equation*}
+		which is the same as the variable $Z\sim N(a_1\mu_1+a_2\mu_2,a_1^2\sigma_1+a_2^2\sigma_2)$. On the other hand, if we consider the PDF $f(cx)dx$ with substituting the $x$ by $y=x/c$, the calculation leads to $g(y)dy$ where $g(y)=N(c\mu,c^2\sigma^2)$. It implies that $M_{a_iX_i}(t)=\exp(a_i\mu_i+a_i^2\sigma^2_i/2)$.
+		\item Here we need to show that $X-c\sim~N(\mu-c,\sigma^2)$ if $X\sim N(\mu,\sigma^2)$. In fact, shifting the integral center by a finite number won't affect the integral as the integral range is $[-\infty,+\infty]$.
+	\end{enumerate}
+\end{proof}
+
+
+\subsection{\texorpdfstring{$\chi^2$} distributions}
+
