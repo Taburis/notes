@@ -168,3 +168,46 @@ Let $(\Omega,\mathfrak{R},\mathbb{P})$ be a probability space, $X$ be a integrab
 \end{equation}
 \end{enumerate}
 \end{theorem}
+
+\begin{proof}
+The linearity comes from the linearity properties of Lebesgue integral. For the 2nd point, it is enough to notice that
+\begin{equation*}
+\int_A\mathbb{I}_{B}\expect(Y|\mathfrak{G})(\omega)d\mathbb{P}=\int_{A\cap B}Y(\omega)d\mathbb{P}=\int_A\mathbb{I}_BY(\omega)d\mathbb{P},\\
+\end{equation*}
+where $B\subseteq A\in\mathfrak{G}$. Any integrable $X$ can be approximated by the summation of $\mathbb{I}_B,\forall B\in \mathfrak{G}$ monotonically. It follows that the integral convergs which conclude this theorem.
+For the 3rd point, it is obvious by expanding two sides for the equation by the definition Eq.\ref{def:condition_expectation}. 
+
+To prove the 4th one, suppose $X=\mathbb{I}_B$ where $B\in\sigma(X)$, then
+\begin{equation*}
+\int_A X(\omega)d\mathbb{P}=\mathbb{P}(A\cap B)=\mathbb{P}(A)\mathbb{P}(B)=\int_A \expect Xd\mathbb{P},
+\end{equation*}
+which conclude this theorem.
+The last point comes from the properties of a convex function $\varphi(x)$ that
+\begin{equation}
+\varphi(tx_1+(1-t)x_2)\le t\varphi(x_1)+(1-t)\varphi(x_2),
+\end{equation}
+and this definition can be extend to 
+\begin{equation}
+\varphi\left(\sum_{i=1}^nt_ix_i\right)\le\sum_{i=1}^nt_i\varphi(x_i),
+\end{equation}
+since, by induction, we assume the equation valid for $n-1$ case, and for $n$ term case, it can be expended as
+\begin{equation*}
+\begin{aligned}
+\varphi\left(\sum_{i=1}^nt_ix_i\right)&\le t_n\varphi(x_n)+\frac{1}{1-t_n}\varphi\left(\sum_{i=1}^{n-1}\frac{t_i}{1-t_n}x_i\right),\\
+&\le\sum_{i=1}^nt_i\varphi(x_i),
+\end{aligned}
+\end{equation*}
+as the $\sum_{i=1}^{n-1}t_i/(1-t_n)=1$. On the other hand, a expectation of $X$ can be approximated by a sequence of simple function like $X_n=\sum x_n\mathbb{P}(A_{x_n})$ and $\sum\mathbb{P}(A_{x_n})=1$ by definition, where $A_{x_n}=X^{-1}[x_n,x_n+1/n]$. These two points lead to this theorem.
+\end{proof}
+
+
+\begin{definition}
+A sequence of $\sigma$-algebra $\mathfrak{F}(t)$, ordered by a parameter $t$, is called a \textbf{Filtration} if $\mathfrak{F}(s)\subseteq\mathfrak{F}(t),\forall s\le t$. Given a sequence of random varialbes $X(t)$ indexed by $t\in[0,T]$ is called an \textbf{Adapted Stochastic Process} if $X(t)$ is $\mathfrak{F}(t)$-measurable $\forall t\in[0,T]$. A stochastic process $X(t)$ is called \textbf{Martingale} if 
+\begin{equation}
+\expect[X(t)|\mathfrak{F}(s)]=X(s),\quad\forall s\le t\in[0,T].
+\end{equation}
+Furthermore, let $f(x),g(x)$ are both Borel-measurable functions, we call $X(t)$ as a \textbf{Markov Process} if 
+\begin{equation}
+\expect[f(X(t))|\mathfrak{F}(s)]=g(X(s))\quad\forall s\le t\in[0,T].
+\end{equation} 
+\end{definition}
