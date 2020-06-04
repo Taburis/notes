@@ -2,7 +2,7 @@
 
 \subsection{Maximum Likelihood Estimation}
 \begin{definition}
-Consider the case that $X\sim f(x;\theta)$ where $\theta$ is a parameter, the $n$ samples $x_i,i=1,\dots,n$ on $X$ at a fix parameter value, say $\theta = \theta_0$. The \textbf{likelihood function} $L(\theta;\boldsymbol{x})$ is defined as
+Consider the case that $X\sim f(x;\theta)$ where $\theta$ is a parameter, a $n$-triple $\boldsymbol{x}=(x_1,\dots,x_n)$ represents $n$ samples over $X$ at a fix parameter value $\theta = \theta_0$ (turth). The \textbf{likelihood function} $L(\theta;\boldsymbol{x})$ is defined as
 \begin{equation}
 L(\theta;\boldsymbol{x})=\prod_{i=1}^nf(x_i;\theta).
 \end{equation}
@@ -10,6 +10,11 @@ A \textbf{log likelihood function} $l(\theta;\boldsymbol{x})$ is
 \begin{equation}
 l(\theta;\boldsymbol{x})=\log L(\theta;\boldsymbol{x})=\sum_{i=1}^n\log f(x_i;\theta).
 \end{equation}
+An estimator $\hat\theta=\hat\theta(\boldsymbol{x})$ is called the \textbf{Maximum Likelihood Estimator} (MLE) of $\theta$ if
+\begin{equation}
+\hat \theta =\argmax L(\theta;\boldsymbol{x}),
+\end{equation} 
+means that $L(\theta;\boldsymbol{x})$ achieves its maximum at $\hat\theta$. It implies that MLE satisfies the equation $\partial l(\theta)/\partial\theta=0$.
 \end{definition}
 
 \begin{definition}(Regularity Conditions)
@@ -20,3 +25,11 @@ Given a PDF $f(x;\theta)$ with the set $\Theta$ as the domain of $\theta$, the r
 	\item The $\theta_0$ is a interior point of $\Theta$.
 \end{enumerate}
 \end{definition}
+
+\begin{theorem}
+Suppose $X\sim f(x,\theta)$ and true parameter $\theta_0$ with samples $\boldsymbol{x}$ satisfy the regularity condition R1 and R2, then 
+\begin{equation}
+\lim_{n\to\infty}P_{\theta_0}[L(\theta_0;\boldsymbol{x})>L(\theta;\boldsymbol{x})]=1,\quad\forall \theta\ne \theta_0.
+\end{equation}
+Furthermore, if they satisfy all R1 to R3, then the solution $\hat\theta$ of the likelihood equation $\partial l(\theta)/\partial\theta=0$ or $\partial L(\theta)/\partial\theta=0$ converges to the truth $\theta_0$ in probability.
+\end{theorem}

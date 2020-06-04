@@ -47,9 +47,14 @@ If a random vairable $X$ is integrable, the \textbf{expectation} of $X$, denoted
 	\end{equation}
 \end{definition}
 Based on the Eq.\ref{eq:expectation_representation}, the expectation $\mathbb{E}(X)$ can be calculated from
-\begin{equation*}
+\begin{equation}
 \mathbb{E}(X)=\int_\realR xf(x)dx.
-\end{equation*}
+\end{equation}
+Furthermore, a variance $\var X$ is defined as
+\begin{equation}
+\var X=\int_\Omega (X-\expect X)^2d\mathbb{P},
+\end{equation}
+in an extreme case, if $\var X=0$ implies that $X$ convergence to $\expect X$ by mean (another term we say $X$ converges to $\expect X$ almost surely).
 
 \begin{definition}
 \index{Random variable!Independence}
@@ -72,7 +77,9 @@ The following properties of moment generating functions are straight forward:
 	\item $\mathbb{E}(X^n)=M_X^{(n)}(0)$, $n$th derivative of $M_X(t)$.
 	\item If $M_X(t)=M_Y(t)$, then $X=Y$.
 	\end{enumerate}
+	\label{th:mgf}
 \end{theorem}
+
 
 
 \subsection{Joint Probabilities and Independence}

@@ -1,0 +1,74 @@
+\section{Stochastic Processes}
+
+\subsection{Brownian Motion}
+\begin{definition}
+Given a space $(\Omega,\mathfrak{R},\mathbb{P})$ and a given increments $0=t_0<t_1<\dots<t_n$, a continuous function $W(t),t\in[0,\infty)$, with $W(0)=0$ is called a \textbf{Brownian motion} if it satisfies any one of the follow three condition:
+\begin{enumerate}
+\item $D(t_i)\ci D(t_j),\forall i\ne j$ and $D(t_i)\sim N(0,t_i-t_{i-1})$ where $D(t_i)=W(t_i)-W(t_{i-1})$;
+\item $\expect \boldsymbol{W} = \boldsymbol{0}$ and $\var \boldsymbol{W}=\boldsymbol{\Sigma}$, where $\boldsymbol{W}$ is a jointly normal distribution $\boldsymbol{W}=(W_1,\dots,W_n)$ and
+\begin{equation}
+\begin{aligned}
+\boldsymbol{\Sigma}&=
+\begin{bmatrix}
+\expect [W^2(t_1)], & \expect[W(t_1)W(t_2)],&\dots &\expect[W(t_1)W(t_n)]\\
+\expect[W(t_2)W(t_1)], &\expect [W^2(t_2)], &\dots&\expect[W(t_2)W(t_n)]\\
+\vdots &\vdots &\dots & \vdots\\
+\expect [W(t_n)W(t_1)] &\expect[W(t_n)W(t_2)], &\dots & \expect[W^2(t_n)]
+\end{bmatrix}\\
+&=
+\begin{bmatrix}
+t_1, & t_1, &\dots & t_1\\
+t_1, & t_2, &\dots & t_2\\
+\vdots & \vdots & \dots & \vdots\\
+t_1, & t_2, &\dots & t_n
+\end{bmatrix}
+\label{eq:brownian_cov_matrix}
+\end{aligned}.
+\end{equation}
+\item The mgf of $\boldsymbol{W}$ is
+\begin{equation}
+\expect \left(\sum_{i=1}^nu_iW_i\right)=\exp\left\{\sum_{k=0}^{n-1}\left(\sum_{j=k+1}^nu_j\right)^2(t_{k+1}-t_{k})\right\}.
+\end{equation}
+\end{enumerate}
+\end{definition}
+
+\begin{proof}
+We first show that for $s\le t$:
+\begin{equation}
+\begin{aligned}
+\expect[W(s)W(t)]&=\expect[W(s)(W(t)-W(s))]+\expect[W^2(s)]\\
+&=\expect[W^2(s)]=\expect[(W(s)-W(0))^2]\\
+&=\var W^2(s)=s,
+\end{aligned}
+\end{equation}
+where the assumption $D(t)\ci W(s),\forall t\ge s$ used. Furthermore, $\expect[W(s)W(t)]=\expect[W(t)W(s)]=s,\forall t\ge s$. This proved the Eq.\ref{eq:brownian_cov_matrix}. The same trick can be used repeatly to derive the mgf above.
+\end{proof}
+
+\begin{theorem}
+Suppose the sequence of $0=t_0\le t_1\le\dots t_n$ and $W(t_i),t_i\in [0,T]$ is a Brownian motion, $D(t_i)=W(t_i)-W(t_{i-1}),i=1,2,\dots$ and define
+\begin{equation}
+\begin{aligned}
+\int_0^T[dW(t)]^2&=\lim_{\max(dt)\to 0}\sum_{i=1}^n[D(t_i)]^2,
+\end{aligned}
+\end{equation}
+where $\max(dt)$ is the maximum of $t_i-t_{i-1}$, for all $i=1,2,\dots$. Then
+\begin{equation}
+\int_0^T[dW(t)]^2 = T \quad\text{almost surely.}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+It is easy to verify the following equation by using the definition $\var D(t_i)=t_i-t_{i-1}$:
+\begin{equation}
+\expect \int_0^T[dD(t)]^2=T,
+\end{equation}
+then the proof left is to show $\var\left(\int_0^T[dD(t)]^2\right)=0$. Note that
+\begin{equation*}
+\begin{aligned}
+&\var\int_0^T[dW(t)]^2=\expect\left(\int_0^T[dW(t)]^2-T\right)^2,\\
+&=\lim_{\max(dt)\to0} \sum_{\{t_i\}}\left\{\expect [D(t_i)]^4-2dt_i\expect [D(t_i)]^2+(dt_i)^2\right\},\\
+&=\lim_{\max(dt)\to0} \sum_{\{t_i\}}2(dt_i)^2=0.
+\end{aligned}
+\end{equation*}
+The last step comes from the fact that $\int_0^T (dt)^2\le dT\int_0^T dt\to0$. The second last step comes from the $\expect [D(t_i)]^4=M_D^{(4)}(0)=3(t_i-t_{i-1}$, where $M_D(t)$ is the mgf of $D(t_i)$. Again it leads to 0 as requiring $\max(dt)\to0$.
+\end{proof}
