@@ -1,0 +1,91 @@
+
+\section{Convention}
+\begin{itemize}
+\item $n$-tiple $(a_i)_n = (a_1,\dots,a_n)$.
+\item $n$ sequence $\{a_i\}_n=a_1,\dots,a_n$.
+\item Given to space $V$ and $W$, $V\cong W$ means $V$ is isomorphic to $W$.
+\end{itemize}
+
+\section{Multilinear Algebra}
+
+\subsection{Linear Space}
+\begin{definition}
+A $\mathfrak{F}$-valued \textbf{vector space} $V$ is a set associated with a field $\mathfrak{F}$and two commutable binary mapping (operation), addition $+:V\times V\to V$ and scalar multiplication $\cdot:\mathfrak{F}\times V\to V$, satisfying these conditions
+\begin{enumerate}
+\item linearity
+\begin{equation}
+\begin{aligned}
+a(\boldsymbol{v}+\boldsymbol{u}) &=a\boldsymbol{u}+a\boldsymbol{v},\\
+(a+b)\boldsymbol{v} &= a\boldsymbol{u}+b\boldsymbol{v},\\
+a(b\boldsymbol{u}) &= (ab)\boldsymbol{u},\\
+0\cdot \boldsymbol{u} &= 0, 1\cdot\boldsymbol{u}=\boldsymbol{u}.
+\end{aligned}
+\end{equation}
+\end{enumerate}
+hold $\forall a,b \in \mathfrak{F}$ and $\boldsymbol{u},\boldsymbol{v}\in V$. The element in $V$ is called \textbf{vector} and the element in $\mathfrak{F}$ is called $\textbf{scalar}$. n vectors $\boldsymbol{v}_1,\dots,\boldsymbol{v}_n$ is said to be \textbf{linear independence} if
+\begin{equation}
+\sum_{i=1}^na_i\boldsymbol{v}_i=0,
+\end{equation}
+hold only if $a_1=\dots=a_n=0$. The \textbf{dimension} $n$ of a vector space is maximum number $n$ of linear independent vectors, and these linear independent vectors, say $\{\boldsymbol{v}_i\}_n$ formed a \textbf{basis} of this space which allow to express any vector in $V$ as a linear combination of the basis
+\begin{equation}
+\boldsymbol{u} = \sum_{i=1}^na_i\boldsymbol{v}_i,\quad \forall \boldsymbol{u}\in V,
+\end{equation}
+we furthre call the $n$-tuple $(a_1,\dots,a_n)$ as the \textbf{coordiate} of the vector $\boldsymbol{u}$ (with respect to this basis).
+A mapping $f:V\to W$, where $W$ is a vector space, is called \textbf{linear} if
+\begin{equation}
+f(a\boldsymbol{u}+b\boldsymbol{v})=af(\boldsymbol{u})+bf(\boldsymbol{v}).
+\end{equation}
+Further more, a mapping $f:V_1\times\dots\times V_r\to W$ is $r$-\textbf{linear} if the linearity exists for any $i$th argument of $f(\boldsymbol{v}_1,\dots,\boldsymbol{v}_i,\dots,\boldsymbol{v}_n)$. All $r$-linear mapping form a vector space denoted as $\mathcal{L}(V_1,\dots,V_r; W)$. (A 2-linear function is called \textbf{bilinear} sometimes.)
+
+A \textbf{Dual space} of $V$, donoted as $V^*$ is a vector space consistant of all the linear function $f:V\to\mathfrak{F}$. This definition is valid since $f+g$ and $af$ is clearly a linear function as well for any $f,g\in V^*$ and $a\in\mathfrak{a}$.  
+\end{definition}
+
+\begin{theorem}
+Given vector space $V$ with basis $\{\boldsymbol{v}_i\}_n$ and the dual space $V^*$, if $\dim V=n$ then $\dim V^*=n$. The function $\boldsymbol{v}^{*i}(\boldsymbol{v}_j)=\delta_j^i$ formed a basis of $V^*$. $V^{**}$, the dual space of $V^*$, is isomorphic to $V$. 
+\end{theorem}
+
+\begin{proof}
+For any linear function $f$ and vector $\boldsymbol{x}=\sum_ix_i\boldsymbol{v}_i$ we have
+\begin{equation}
+f(\boldsymbol{x})=\sum_{i=1}^nx_if(\boldsymbol{v}_i)=\sum_{i=1}^nf_i\boldsymbol{v}^{*i}(\boldsymbol{x}),
+\end{equation}
+where $f_i=f(\boldsymbol{v}_i)$. Then $f=\sum_if_i\boldsymbol{v}^{*i}$. This equation also shows that $V^{**}$ is isomorphic to $V$. 
+\end{proof}
+
+\begin{definition}
+Given a vector space $V$ and $V^*$, define
+\begin{equation}
+\langle \boldsymbol{v}^*,\boldsymbol{u}\rangle = \boldsymbol{v}^*(\boldsymbol{u}), \quad \forall \boldsymbol{u}\in V, \quad \forall \boldsymbol{v}^*\in V^*.
+\end{equation}
+This mapping $\langle,\rangle:V^*\times V\to\mathfrak{F}$ is bilinear. Given vector space $V$ and $W$, the direct product $V\times W$ is a vector space as well with dimension $\dim V\cdot\dim W$. A \textbf{tensor product} is a bilinear mapping $\otimes:V\times W\to V\otimes W$, and, $V\times W\cong V\otimes W$. Furthermore, the linear function on $V\otimes W$ can be defined as
+\begin{equation}
+v^*\otimes w^*(\boldsymbol{x}\otimes\boldsymbol{y})=v^*(\boldsymbol{x})\cdot w^*(\boldsymbol{y}),\quad \forall v^*\in V^*\,\,\text{and}\,\,\forall w* \in W^*,
+\end{equation}
+Or rewrite it as
+\begin{equation}
+\langle v^*\otimes w^*,\boldsymbol{x}\otimes\boldsymbol{y}\rangle=\langle v^*,\boldsymbol{x}\rangle\cdot\langle w^*,\boldsymbol{y}\rangle.
+\end{equation}
+which means that $(V\otimes W)^*=V^*\otimes W^*$.
+
+For the mapping $f$ in $\mathcal{L}(V\otimes W;Z)$, a \textbf{kernel} $\mathcal{K}_f(V\otimes W)$ is a subspace of $V\otimes W$ that $f(x\otimes y)=0,\forall x\otimes y \in V\otimes W$. If $\mathcal{K}_f(V\otimes W)$ is trivial, which means $\mathcal{K}_f(V\otimes W)=0$, then $f\in\mathrm{Hom}(V\otimes W;Z)$, the space of all isomorphism mapping $V\otimes W\to Z$.
+\end{definition}
+
+\begin{theorem}
+Given vector spaces $V$, $W$ and $Z$, then $V\times W\cong V\otimes W$ and then $\mathcal{L}(V\times W;Z)\cong\mathcal{L}(V\otimes W;Z)$. Tensor product is associative under the product $\langle,\rangle$
+\end{theorem}
+
+\subsection{Tensors}
+\begin{definition}
+Given a vector space $V$ and dual space $V^*$, a element in the space 
+\begin{equation}
+V^r_s=\underbrace{V\otimes\cdots\otimes V}_{r\text{ terms}}\otimes \underbrace{V^*\otimes\cdots\otimes V^*}_{s\text{ terms}}.
+\end{equation}
+\end{definition}
+
+\subsection{Exterior Differential Calculus}
+\begin{definition}
+Given a $n$-dimensional smooth manifold $V$. Then $T^r_s(p)$ is (r,s)-\text{type tensor space} consisted by the $T_p$ and $T^*_p$, the tangent and cotangent space at $p\in V$. $T^r_s$ is defined as
+\begin{equation}
+T^r_s=\bigcup_{p\in V}T^r_s(p)
+\end{equation}
+\end{definition}

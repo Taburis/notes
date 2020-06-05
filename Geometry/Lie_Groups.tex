@@ -1,0 +1,42 @@
+\section{Lie Groups}
+\begin{definition}
+A set $G$ is a \textbf{Lie group} if
+\begin{enumerate}
+\item $G$ is a group (operation denoted by multiplication);
+\item $G$ is a $r$-dimensional smooth manifold;
+\item The mapping $\tau:G\to G$ that $\tau(g)=g^{-1}$ and the group multiplication $\varphi:G\times G\to$ that $\varphi(g_1,g_2)=g_1\cdot g_2$ are both smooth maps.
+\end{enumerate}
+A \textbf{right translation} of $g\in G$ on $G$ is a $R_g:G\to G$ mapping that $R_g(x)=x\cdot g,\forall x\in G$. The \textbf{left translation} $L_g$ is defined similarly that $L_g(x)=g\cdot x$. The interecting 
+\end{definition}
+
+\begin{definition}
+Suppose $F:V\to W$ is a smooth map between two smooth manifolds $V$ and $W$, then a \textbf{differential} of map $F$, denoted as $F^*:T^*_\alpha\to T^*_x$, at the point $\alpha=F(x),x\in V$, induced by
+\begin{equation}
+F^*(df) = d(f\circ F),\quad df\in T_\alpha^*,
+\end{equation}
+where $T^*_x$ is the cotangent space at $x\in V$. By the duality, a \textbf{tangent map} or \textbf{pushforward map} $F_*:T_x\to T_\alpha$ induced by  $F$ is defined as
+\begin{equation}
+\langle F_*X,a\rangle=\langle X,F^*a\rangle,\quad X\in T_x,\,a\in T^*_\alpha.
+\end{equation}
+\end{definition}
+
+\begin{theorem}
+Suppose $\{v_\alpha\}_m$ and $\{w_i\}_n$ are the natural basis of smooth manifold $V$ and $W$ respectively, and $F:V\to W$ is a smooth mapping. Then the differential $F^*$ on $dw^i$ can be expressed as
+\begin{equation}
+F^*(dw^i)=\sum_{\alpha=1}^m\left(\frac{\partial F^\alpha}{\partial v_i}\right)_vdv^i,
+\end{equation}
+where $F^\alpha(v_1,\dots,v_m)=w^\alpha$ is a projection maping  near the point $v\in V$. The tangent map $F_*$ on $v\in V$ can be represented as 
+\begin{equation}
+F_*\left(\frac{\partial}{\partial v_i}\right)=\sum_{\alpha=1}^n\left(\frac{\partial F^\alpha}{\partial v^i}\right)_v\frac{\partial}{\partial w_\alpha},
+\end{equation}
+where $\left(\partial F^\alpha/\partial v^i\right)_v$ is the Jacobian matrix.
+\end{theorem}
+
+\begin{definition}(\textbf{Maurer-Cartan Form})
+Given a Lie group $G$, a \textbf{right fundamental differential form} or \textbf{Maurer-Cartan form} $\omega$ is a differential 1-form $\omega$ defined as
+\begin{equation}
+\omega(X) = (R_{a^{-1}})_*X,  \quad X\in G_a,
+\end{equation}
+where $G_a$ is the tangent space at $a\in G$. And $(R_{a^{-1}})_*:G_a\to G_e$ is a induced tangent mapping.
+\end{definition}
+
