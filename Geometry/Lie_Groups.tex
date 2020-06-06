@@ -17,20 +17,32 @@ F^*(df) = d(f\circ F),\quad df\in T_\alpha^*,
 where $T^*_x$ is the cotangent space at $x\in V$. By the duality, a \textbf{tangent map} or \textbf{pushforward map} $F_*:T_x\to T_\alpha$ induced by  $F$ is defined as
 \begin{equation}
 \langle F_*X,a\rangle=\langle X,F^*a\rangle,\quad X\in T_x,\,a\in T^*_\alpha.
+\label{eq:scalar_product_duality}
 \end{equation}
 \end{definition}
 
 \begin{theorem}
 Suppose $\{v_\alpha\}_m$ and $\{w_i\}_n$ are the natural basis of smooth manifold $V$ and $W$ respectively, and $F:V\to W$ is a smooth mapping. Then the differential $F^*$ on $dw^i$ can be expressed as
 \begin{equation}
-F^*(dw^i)=\sum_{\alpha=1}^m\left(\frac{\partial F^\alpha}{\partial v_i}\right)_vdv^i,
+F^*(dw^i)=\sum_{\alpha=1}^m\left(\frac{\partial w_\alpha}{\partial v_i}\right)_vdv^i,
+\label{eq:pullback_map}
 \end{equation}
-where $F^\alpha(v_1,\dots,v_m)=w^\alpha$ is a projection maping  near the point $v\in V$. The tangent map $F_*$ on $v\in V$ can be represented as 
+where $(w_1,\dots,w_n)=F(v_1,\dots,v_m)$ a projection maping  near the point $v\in V$. The tangent map $F_*$ on $v\in V$ can be represented as 
 \begin{equation}
-F_*\left(\frac{\partial}{\partial v_i}\right)=\sum_{\alpha=1}^n\left(\frac{\partial F^\alpha}{\partial v^i}\right)_v\frac{\partial}{\partial w_\alpha},
+F_*\left(\frac{\partial}{\partial v_i}\right)=\sum_{\alpha=1}^n\left(\frac{\partial w_\alpha}{\partial v_i}\right)_v\frac{\partial}{\partial w_\alpha},
+\label{eq:pushforward_map}
 \end{equation}
 where $\left(\partial F^\alpha/\partial v^i\right)_v$ is the Jacobian matrix.
 \end{theorem}
+
+\begin{proof}
+This formula can be easily proved based on the chain rule of differential
+\begin{equation*}
+d(f\circ F)(v) = d(f[F(v)])=d(\tilde{f}(w)),\quad f\in V^*.
+\end{equation*}
+Put the equation above back to Eq.~\ref{eq:scalar_product_duality} to get the Eq.~\ref{eq:pushforward_map}.
+\end{proof}
+
 
 \begin{definition}(\textbf{Maurer-Cartan Form})
 Given a Lie group $G$, a \textbf{right fundamental differential form} or \textbf{Maurer-Cartan form} $\omega$ is a differential 1-form $\omega$ defined as

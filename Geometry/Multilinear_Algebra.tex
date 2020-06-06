@@ -80,12 +80,164 @@ Given a vector space $V$ and dual space $V^*$, a element in the space
 \begin{equation}
 V^r_s=\underbrace{V\otimes\cdots\otimes V}_{r\text{ terms}}\otimes \underbrace{V^*\otimes\cdots\otimes V^*}_{s\text{ terms}}.
 \end{equation}
+The basis of $V^r_s$ can be expressed as
+\begin{equation}
+e_{i_1}\otimes\cdots\otimes e_{i_r}\otimes e^{*k_1}\otimes\cdots\otimes e^{*k_s},
+\end{equation}
+where $\{e_i\}_{1\le i\le n}$ and $\{e^{*j}\}_{1\le j\le n}$ is the basis of $V$ and $V^*$, respectively. 
 \end{definition}
+
+The \textbf{Einstein summation rule} in tensor is that omitting the summation sign for the summation over the superscript and the subscript index in the same term
+\begin{equation*}
+x^{ij}e_{i}=\sum_{i=1}^rx^{ij}e_i.
+\end{equation*}
+Any tensor $x\in V^r_s$ can be expressed as
+\begin{equation}
+x=x^{i_1\dots i_r}_{k_1\dots k_s}e_{i_1}\otimes\cdots\otimes e_{i_r}\otimes e^{*k_1}\otimes\cdots\otimes e^{*k_s},
+\end{equation}
+where the coefficient $x^{i_1\dots i_r}_{k_1\dots k_s}e_{i_1}$ is the cooridnate of $x$ with respect to the basis $\{e_i\}_{1\le i\le n}$ of $V$. And the cooridnate can be expressed a functoin value for $x\in V^r_s$ since any $x$ is a $(r+s)$-linear function on $V^s_r$:
+\begin{equation}
+x^{i_1\dots i_r}_{k_1\dots k_s}=x(e^{*i_1},\dots, e^{*i_r},e_{k_1},\cdots, e_{k_s}).
+\end{equation}
+
+\begin{theorem}
+Suppose a linear transformation $V\to V$ that change the coordinate from $e_i\to \bar e_j$, then it can be expressed
+\begin{equation}
+\bar e_i=\alpha_i^je_j,\quad \bar e^*{k}=(\alpha^{-1})^k_le^{*l},\quad \alpha^i_j(\alpha^{-1})^j_k=\delta^i_k.
+\end{equation}
+In that case, any $x\in V^r_s$, the coordinate $x^{k_1\dots k_r}_{l_1\dots l_s}$ with respect to basis $\{e_i\}_{1\le i\le n}$ and the coordinate $\bar x^{i_1\dots i_r}_{j_1\dots j_s}$ with respect to the coordinate $\{\bar e_i\}_{1\le i\le n}$ in the different two basis is connected as
+\begin{equation}
+x^{k_1\dots k_r}_{l_1\dots l_s}=\bar x^{i_1\dots i_r}_{j_1\dots j_s} \alpha_{i_1}^{k_1}\cdots\alpha_{i_r}^{k_r}\cdot (\alpha^{-1})_{l_1}^{j_1}\cdots(\alpha^{-1})_{l_s}^{j_s}.
+\end{equation}
+If $x$ is a $(r,s)$-type tensor and $y$ is a $(l,h)$-type tensor, then $z=x\otimes y$ is a $(r+l,s+h)$-type tensor with the cooridnate
+\begin{equation}
+(x\otimes y)^{i_1\dots i_{r+l}}_{j_1\dots j_{s+h}}=x^{i_1\dots i_r}_{j_1\dots j_s}\cdot y^{i_{r+1}\dots i_{r+l}}_{j_{s+1}\dots j_{s+h}}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The proof is pretty straight forward, we picked up a $(1,1)$-type tensor to illustrate the idea. Suppose $x=x^i_je_i\otimes e^{*j}$, and $\bar e_i=\alpha_i^j e_j$, then
+\begin{equation*}
+\begin{aligned}
+x&=\bar x^i_j\bar e_i\otimes \bar e^{*j}\\
+&=\bar x^i_j (\alpha^k_i e_k)\otimes\left((\alpha^{-1})^j_le^{*l}\right)\\
+&=\bar x^i_j \alpha^k_i (\alpha^{-1})^j_le_k\otimes e^{*l}.
+\end{aligned}
+\end{equation*}
+For the $x\otimes y$, it comes from the distributive properties of the tensor product.
+\end{proof}
+
+
+\begin{definition}
+A \textbf{tensor algebra} $T(V)$ of a vector space $V$ is a set of direct sum
+\begin{equation}
+T(V)=\bigoplus_{r\ge 0}T^r(V),
+\end{equation}
+where $T^r(V)=V^r$, a $(r,0)$-type tensor space. With the multiplication is defined as a tensor product. In the similar way, we can define $T(V^*)$ for $V^*$ as well.
+\end{definition}
+
+\begin{definition}(Symmetrizatoin and Alternation)
+A tensor $x\in T^r(V)$ is said to be \textbf{symmetric} or \textbf{alternative} if 
+\begin{equation}
+\begin{aligned}
+\sigma x &= x,\quad\text{symmetric}\\ 
+\sigma x &= \text{sgn}(\sigma)\cdot x,\quad \text{alternative}
+\end{aligned}
+\end{equation}
+where $\mathfrak{S}_r$ is the permutation group of degree $r$ and $\text{sgn}(\sigma)$ is the sign of the permutation $\sigma$ (1 for even permutation and -1 for odd permutation). The permutation action is defined as
+\begin{equation}
+\begin{aligned}
+&\sigma x(v^{*1},\dots,v^{*r})=x\left(v^{*\sigma(1)},\dots,v^{*\sigma(r)}\right),\\
+&\sigma x=v_{\sigma^{-1}(1)}\otimes\cdots\otimes v_{\sigma^{-1}(r)},\quad x=v_1\otimes\cdots\otimes v_r.
+\label{eq:tensor_permute}
+\end{aligned}
+\end{equation}
+Furthermore, a \textbf{Symmetrizing map} $S_r(x)$ and a \textbf{Alternating map} $A_r(x)$ is defined as
+\begin{equation}
+\begin{aligned}
+S_r(x)&=\frac{1}{r!}\sum_{\sigma\in\mathfrak{S}_r}\sigma x,\\
+A_r(x)&=\frac{1}{r!}\sum_{\sigma\in\mathfrak{S}_r}\text{sgn}(\sigma)\sigma x.
+\end{aligned}
+\end{equation}
+We denote $P^r(V),\Lambda^r(V)$ for the set of all symmetric tensor and alternative tensor in $V^r$, repectively.
+\end{definition}
+
+\begin{theorem}
+Given a $x\in V^r$, it is symmetric or alternative if and only if its coordinate $x^{i_1\dots i_r}$ is symmetric or alternative respect to all indices. For a $\sigma\in \mathfrak{S}_r$, 
+\begin{equation}
+\sigma[S_r(x)]=S_r(x),\quad \sigma[A_r(x)]=\text{sgn}(\sigma)\cdot A_r(x).
+\end{equation}
+Furthermore, 
+\begin{equation}
+P^r(V)=S_r(T^r(V)),\quad \Lambda^r(V)=A_r(T^r(V)).
+\end{equation} 
+\end{theorem}
+\begin{proof}
+The first conclusion can be verified directly from the defintion Eq.~\ref{eq:tensor_permute}. The second conclusion comes from a trick that $\tau\sum_{\sigma\in\mathfrak{S}_r}\sigma=\sum_{\sigma\in\mathfrak{S}_r}\sigma,\forall \tau\in\mathfrak{S}_r$, for instance, 
+\begin{equation*}
+\begin{aligned}
+\tau A_r(x)&=\frac{1}{r!}\sum_{\sigma\in\mathfrak{S}_r}\text{sgn}(\sigma)\cdot\tau\circ\sigma(x),\\
+&=\frac{\text{sgn}(\tau)}{r!}\sum_{\tau\circ\sigma\in\mathfrak{S}_r}\text{sgn}(\tau\circ\sigma)\cdot(\tau\circ\sigma(x))\\
+&=\text{sgn}(\tau)A_r(x).
+\end{aligned}
+\end{equation*}
+This implies that $P^r(V)=S_r(P^r(V))$ and $\Lambda^r=A_r(\Lambda^r(V))$.
+\end{proof}
+
+\subsection{Exterior Algebra}
+
 
 \subsection{Exterior Differential Calculus}
 \begin{definition}
-Given a $n$-dimensional smooth manifold $V$. Then $T^r_s(p)$ is (r,s)-\text{type tensor space} consisted by the $T_p$ and $T^*_p$, the tangent and cotangent space at $p\in V$. $T^r_s$ is defined as
+Given a $n$-dimensional smooth manifold $M$. A \textbf{fiber} $T^r_s(p)$ of $p$ on $M$ is a (r,s)-type tensor space consisting from the $T_p$ and $T^*_p$, the tangent and cotangent space at $p\in M$. A $(r,s)$-type \textbf{tensor bundle} $T^r_s$ is defined as
 \begin{equation}
-T^r_s=\bigcup_{p\in V}T^r_s(p)
+T^r_s=\bigcup_{p\in M}T^r_s(p),
 \end{equation}
+Suppose $U$ is a neighborhood on a manifold $M$ with coordinate $(u_1,\dots,u_n)$ and $V^r_s$ is a $(r,s)$-tensor space. A cooridnate chart mapping is defined as
+\begin{equation}
+\varphi_U:U\times V^r_s\to \bigcup_{p\in U}T^r_s(p),
+\end{equation}
+This mapping is a isomorphism from $V^r_s$ to $T^r_s(p)$ for any fixed $p\in U$. Furthermore, given a coordinate cover $\{U_1,\dots,U_m\}$ of $M$, and a sequence of mapping $\{\varphi_{U_1},\dots,\varphi_{U_m}\}$. This formed a $C^\infty$-compatible local coordinate system so that a coordinate in chart $\varphi_U(U\times V^r_s)$ is
+\begin{equation}
+\varphi_U(p,y)=\left(u_i(p),y^{i_1,\dots,i_r}_{j_1,\dots,j_s}\right),\quad y\in V^r_s.
+\end{equation}
+It implies that $T^r_s$ is a manifold. A \textbf{bundle projection} is a smooth surjection $\pi:T^r_s\to M$ maps all element of $T^r_s(p)$ to $p\in M$. Usually $T^1_0$ is called \textbf{tangent bundle} of $M$ and denoted as $TM$, and $T_1^0$ is called \textbf{cotangent bundle} of $M$ denoted as $T^*M$.
+A smooth $f:M\to T^r_s$ is called a \textbf{smooth section} or a type $(r,s)$-\textbf{smooth tensor field} if $f(p)\in T^r_s(p),\forall p\in M$, or $\pi\circ f=\text{id}:M\to M$.
 \end{definition}
+
+
+To insure the validation of this definition, the $C^\infty$-compatible charts are crutial to make the $T^r_s$ be a manifold. On the other hand, given open covers $U,V$ which $U\cap V\ne \varnothing$, and $y,y'\in V^r_s$, the sufficient and necessary condition for coordinate charts are $C^\infty$-compatible 
+\begin{equation}
+\varphi_U(p,y)=\varphi_V(p,y'),
+\end{equation}
+is
+\begin{equation}
+y'=y\cdot g_{VU}(p),\quad g_{VU}(p):\varphi^{-1}_{V,p}\circ\varphi_{U,p}:V^r_s\to V^r_s,
+\end{equation}
+where $\varphi_{U,p}(y) = \varphi_{U}(p,y),y\in V^r_s$. The equation above means that $g_{VU}(p)\in \text{GL}(V^r_s)$, an automorphism on $V^r_s$. The following definition is a extension of the construction so far.
+
+
+\begin{definition}(Vector Bundle)
+Given two manifolds $M, E$ and a smooth surjective mapping $\pi:E\to M$ and a $q$-dimensional vector space $V=\realR^q$. If an open cover $\{U_1,\dots\}$ of $M$ and a set of mappings $\{\varphi_{U_1},\dots\}$ satisfy all the following conditions, then $(E,M,\pi)$ is called a (real) $q$-dimensional \textbf{vector bundle} on $M$, where $E$ is called the \textbf{bundle space}, $M$ is called the \textbf{base space}, $\pi$ is called \textbf{bundle projection}, and $V=\realR^q$ is called a \textbf{typical fiber}:
+\begin{enumerate}
+\item Every map $\varphi_U:U\times \realR^q\to\pi^{-1}(U)$ is a diffeomorphism
+\begin{equation}
+\pi\circ\varphi_U(p,y)=p,\quad p\in U,y\in\realR^q.
+\end{equation}
+\item For any fixed $p\in U$,\
+\begin{equation}
+\varphi_{U,p}(y)=\varphi_U(p,y),\quad y\in\realR^q,
+\end{equation}
+is a homeomorphism. For any $p\in U\cap W$,
+\begin{equation}
+g_{UW}(p)=\varphi_{W,p}^{-1}\circ\varphi_{U,p}:\realR^q\to\realR^q
+\end{equation}
+and $g_{UW}(p)\in \text{GL}(\realR^q)$.
+\item The mapping $g_{UW}:U\cap W\to \text{GL}(\realR^q)$ is smooth if $U\cap W\ne\varnothing$.
+\end{enumerate}
+This definition can be extended to complex field by substitute $\text{GL}(\realR^q)$ by $\text{GL}(\complexC^q)$ and $\pi^{-1}(p),p\in M$ will be a $q$-dimensional complex vector space. 
+\end{definition}
+
+\begin{theorem}
+
+\end{theorem}
