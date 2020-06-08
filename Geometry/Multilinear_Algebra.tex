@@ -84,7 +84,9 @@ The basis of $V^r_s$ can be expressed as
 \begin{equation}
 e_{i_1}\otimes\cdots\otimes e_{i_r}\otimes e^{*k_1}\otimes\cdots\otimes e^{*k_s},
 \end{equation}
-where $\{e_i\}_{1\le i\le n}$ and $\{e^{*j}\}_{1\le j\le n}$ is the basis of $V$ and $V^*$, respectively. 
+where $\{e_i\}_{1\le i\le n}$ and $\{e^{*j}\}_{1\le j\le n}$ is the basis of $V$ and $V^*$, respectively. A $V^r_0$ is called a \textbf{contravariant space} and $V_s^0$ is called \textbf{covariant space}.
+\index{Tensor!Tensor Space}
+\index{Tensor!Contravariant and Covariant}
 \end{definition}
 
 The \textbf{Einstein summation rule} in tensor is that omitting the summation sign for the summation over the superscript and the subscript index in the same term
@@ -130,6 +132,7 @@ For the $x\otimes y$, it comes from the distributive properties of the tensor pr
 
 \begin{definition}
 A \textbf{tensor algebra} $T(V)$ of a vector space $V$ is a set of direct sum
+\index{Tensor!Tensor Algebra}
 \begin{equation}
 T(V)=\bigoplus_{r\ge 0}T^r(V),
 \end{equation}
@@ -153,6 +156,7 @@ where $\mathfrak{S}_r$ is the permutation group of degree $r$ and $\text{sgn}(\s
 \end{aligned}
 \end{equation}
 Furthermore, a \textbf{Symmetrizing map} $S_r(x)$ and a \textbf{Alternating map} $A_r(x)$ is defined as
+\index{Tensor!Symmetrization and Alternation}
 \begin{equation}
 \begin{aligned}
 S_r(x)&=\frac{1}{r!}\sum_{\sigma\in\mathfrak{S}_r}\sigma x,\\
@@ -185,7 +189,101 @@ This implies that $P^r(V)=S_r(P^r(V))$ and $\Lambda^r=A_r(\Lambda^r(V))$.
 \end{proof}
 
 \subsection{Exterior Algebra}
+\begin{definition}
+Given a vector space $V$. The $\Lambda^r(V)$ is also called \textbf{exterior space} of degree $r$. The element in $\Lambda^r(V)$ is called \textbf{exterior vector}. Suppose $\alpha\in\Lambda^r(V)$ and $\beta\in\Lambda^s(V)$, a \textbf{exterior (wedge) product} is a mapping $\wedge:\Lambda^r(V)\times\Lambda^s(V)\to\Lambda^{r+s}(V)$ defined as
+\begin{equation}
+\alpha\wedge\beta = A_{r+s}(\alpha\otimes\beta),
+\end{equation} 
+where $A_{r+s}(x)$ is a alternative mapping.
+\index{Exterior Algebra!Exterior vector}
+\end{definition}
 
+\begin{theorem}
+Suppose $\eta,\eta_1,\eta_2\in\Lambda^k(V)$, $\xi,\xi_1,\xi_2\in\Lambda^l(V)$, and $\gamma\in\Lambda^m(V)$. The wedge product satisfies the following properties
+\begin{enumerate}
+\item Anticommunity $\eta\wedge\xi =(-1)^{kl}\xi\wedge\eta$;
+\item Distribution law $(\eta_1+\eta_2)\wedge\xi=\eta_1\wedge\xi+\eta_2\wedge\xi$;
+\item Associative law $(\eta\wedge\xi)\wedge\gamma=\eta\wedge(\xi\wedge\gamma)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item Suppose $\tau$ is a permuation swapping $\eta\otimes\xi$ to $\xi\otimes\eta$, since it require $kl$ times exchange then $\text{sgn}(\tau)=(-1)^{kl}$, and 
+\begin{equation*}
+\begin{aligned}
+&\eta\wedge\xi(v^{*1},\dots,v^{*k+l})\\
+=&(-1)^{kl}\eta\wedge\xi\left(v^{*\tau(1)},\dots,v^{*\tau(k+l)}\right),\\
+=&\frac{(-1)^{kl}}{(k+l)!}\sum_{\sigma\in\mathfrak{S}_{r+s}}\eta(v^{*\sigma\circ\tau(1)},\dots,v^{*\sigma\circ\tau(k)})\cdot\\
+&\xi(v^{*\sigma\circ\tau(k+1)},\dots,v^{*\sigma\circ\tau(k+l)})\\
+=&\frac{(-1)^{kl}}{(k+l)!}\sum_{\sigma\in\mathfrak{S}_{r+s}}\eta(v^{*\sigma(k+1)},\dots,v^{*\sigma\circ\tau(k+l)})\cdot\\
+&\xi(v^{*\sigma\circ\tau(1)},\dots,v^{*\sigma\circ\tau(k)})\\
+=&\xi\wedge\eta(v^{*1},\dots,v^{*k+l}).
+\end{aligned}
+\end{equation*}
+\item This comes from the linearity for both alternative mapping and the tensor product.
+\item It can be verified by direct calculation. 
+\end{enumerate}
+\end{proof}
+
+\begin{definition}
+A \textbf{exterior algebra} or \textbf{Grassman algebra} is a set $\Lambda(V)$
+\begin{equation}
+\Lambda(V)=\bigoplus_{r=0}^n\Lambda^r(V),\quad n=\dim V,
+\end{equation}
+with the addition inherited from the tensor addition and the multiplication is the wedge product. Similarly, $\Lambda(V^*)$ can be defined for $V^*$ where $\Lambda^r(V^*)$ is called the \textbf{exterior form} with degree of $r$. 
+\end{definition}
+
+\begin{theorem}
+The dimension of $\Lambda(V)$ is $2^n$. The \textbf{evaluation formula} is 
+\begin{equation}
+\begin{aligned}
+e_{i_1}\wedge\dots\wedge e_{i_r}(v^{*1},\dots,v^{*r})&=\frac{1}{r!}\sum_{\sigma\in\mathfrak{S}_r}\text{sgn}(\sigma)\langle e_{i_1},v^{*1}\rangle\cdots\langle e_{i_r},v^{*r}\rangle,\\
+&=\frac{1}{r!}\det(\langle e_{i_\alpha},v^{*\beta}\rangle),\\
+w_{1}\wedge\dots\wedge w_{r}(v^{*1},\dots,v^{*r})&=\frac{1}{r!}\det(\langle w_{\alpha},v^{*\beta}\rangle).
+\end{aligned}
+\end{equation}
+Futhermore, for two basis $\{v_i\}_{1\le i\le n}$ and $\{w_i\}_{1\le i\le n}$ related by $w_\alpha=T^\beta_\alpha v_\beta$, then
+\begin{equation}
+w_1\wedge\cdots\wedge w_r= \det T\cdot v_1\wedge\cdots\wedge v_r.
+\end{equation}
+Suppose $f:V\to W$ is a linear transform, then
+\begin{equation}
+f^*(\varphi\wedge\psi)=(f^*\varphi)\wedge(f^*\psi),\quad \varphi,\psi\in \Lambda(V^*),
+\end{equation}
+that is the map $f^*$ commute with the wedge product.
+\end{theorem}
+
+\begin{proof}
+Since there's only $n=\dim V$ different basis which makes any $\Lambda^{m}(V)=0,m>n$. So for $\Lambda^r(V),r\le n$, there's only
+\begin{equation}
+\left(
+\begin{aligned}
+n\\ r
+\end{aligned}
+\right)=\frac{n!}{r!(n-r)!}
+\end{equation}
+possible combination of $r$ basis out of $n$ candidates, so in total
+\begin{equation}
+2^n=\sum_{r=0}^n\left(
+\begin{aligned}
+n\\ r
+\end{aligned}
+\right).
+\end{equation}
+The evaluation formula is obviously considering the definition of the determinant. To verify the last equation, it is straight forward by applying the following equation
+\begin{equation}
+f^*\varphi(v_1,\dots,v_n)=\varphi(f(v_1),\dots,f(v_n))
+\end{equation}
+to check the $f*(\varphi\wedge\psi)$ and $(f^*\varphi)\wedge(f^*\psi)$ separately.
+\end{proof}
+
+\begin{theorem}
+The necessary and sufficient condition for the vectors $v_1,\dots,v_n$ is linear dependent is that
+\begin{equation}
+v_1\wedge\cdots\wedge v_n=0.
+\end{equation}
+\end{theorem}
 
 \subsection{Exterior Differential Calculus}
 \begin{definition}
