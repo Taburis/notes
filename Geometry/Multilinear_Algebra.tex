@@ -238,9 +238,10 @@ with the addition inherited from the tensor addition and the multiplication is t
 The dimension of $\Lambda(V)$ is $2^n$. The \textbf{evaluation formula} is 
 \begin{equation}
 \begin{aligned}
-e_{i_1}\wedge\dots\wedge e_{i_r}(v^{*1},\dots,v^{*r})&=\frac{1}{r!}\sum_{\sigma\in\mathfrak{S}_r}\text{sgn}(\sigma)\langle e_{i_1},v^{*1}\rangle\cdots\langle e_{i_r},v^{*r}\rangle,\\
+&e_{i_1}\wedge\dots\wedge e_{i_r}(v^{*1},\dots,v^{*r})\\
+&=\frac{1}{r!}\sum_{\sigma\in\mathfrak{S}_r}\text{sgn}(\sigma)\langle e_{i_1},v^{*1}\rangle\cdots\langle e_{i_r},v^{*r}\rangle,\\
 &=\frac{1}{r!}\det(\langle e_{i_\alpha},v^{*\beta}\rangle),\\
-w_{1}\wedge\dots\wedge w_{r}(v^{*1},\dots,v^{*r})&=\frac{1}{r!}\det(\langle w_{\alpha},v^{*\beta}\rangle).
+&w_{1}\wedge\dots\wedge w_{r}(v^{*1},\dots,v^{*r})=\frac{1}{r!}\det(\langle w_{\alpha},v^{*\beta}\rangle).
 \end{aligned}
 \end{equation}
 Futhermore, for two basis $\{v_i\}_{1\le i\le n}$ and $\{w_i\}_{1\le i\le n}$ related by $w_\alpha=T^\beta_\alpha v_\beta$, then
@@ -285,7 +286,7 @@ v_1\wedge\cdots\wedge v_n=0.
 \end{equation}
 \end{theorem}
 
-\subsection{Exterior Differential Calculus}
+\subsection{Tensor Bundle and Vector Bundle}
 \begin{definition}
 Given a $n$-dimensional smooth manifold $M$. A \textbf{fiber} $T^r_s(p)$ of $p$ on $M$ is a (r,s)-type tensor space consisting from the $T_p$ and $T^*_p$, the tangent and cotangent space at $p\in M$. A $(r,s)$-type \textbf{tensor bundle} $T^r_s$ is defined as
 \begin{equation}
@@ -299,8 +300,12 @@ This mapping is a isomorphism from $V^r_s$ to $T^r_s(p)$ for any fixed $p\in U$.
 \begin{equation}
 \varphi_U(p,y)=\left(u_i(p),y^{i_1,\dots,i_r}_{j_1,\dots,j_s}\right),\quad y\in V^r_s.
 \end{equation}
-It implies that $T^r_s$ is a manifold. A \textbf{bundle projection} is a smooth surjection $\pi:T^r_s\to M$ maps all element of $T^r_s(p)$ to $p\in M$. Usually $T^1_0$ is called \textbf{tangent bundle} of $M$ and denoted as $TM$, and $T_1^0$ is called \textbf{cotangent bundle} of $M$ denoted as $T^*M$.
-A smooth $f:M\to T^r_s$ is called a \textbf{smooth section} or a type $(r,s)$-\textbf{smooth tensor field} if $f(p)\in T^r_s(p),\forall p\in M$, or $\pi\circ f=\text{id}:M\to M$.
+It implies that $T^r_s$ is a manifold. 
+\begin{itemize}
+\item A \textbf{bundle projection} is a smooth surjective map $\pi:T^r_s\to M$ mapping all element of $T^r_s(p)$ to $p\in M$.
+\item $T^1_0$ is called \textbf{tangent bundle} of $M$ and denoted as $TM$, and $T_1^0$ is called \textbf{cotangent bundle} of $M$, denoted as $T^*M$.
+\item A smooth $f:M\to T^r_s$ is called a \textbf{smooth section} or a type $(r,s)$-\textbf{smooth tensor field} if $f(p)\in T^r_s(p),\forall p\in M$, or $\pi\circ f=\text{id}:M\to M$.
+\end{itemize}
 \end{definition}
 
 
@@ -333,9 +338,146 @@ g_{UW}(p)=\varphi_{W,p}^{-1}\circ\varphi_{U,p}:\realR^q\to\realR^q
 and $g_{UW}(p)\in \text{GL}(\realR^q)$.
 \item The mapping $g_{UW}:U\cap W\to \text{GL}(\realR^q)$ is smooth if $U\cap W\ne\varnothing$.
 \end{enumerate}
-This definition can be extended to complex field by substitute $\text{GL}(\realR^q)$ by $\text{GL}(\complexC^q)$ and $\pi^{-1}(p),p\in M$ will be a $q$-dimensional complex vector space. 
+The space $E_p=\pi^{-1}(p),\forall p\in M$ is called the \textbf{fiber} of vector bundle $E$ at $p$.
+This definition can be extended to complex field through substituting the $\text{GL}(\realR^q)$ by $\text{GL}(\complexC^q)$ and $\pi^{-1}(p),p\in M$ will be a $q$-dimensional complex vector space.  A \textbf{smooth section} $s$ is a smooth map $s:M\to E$ preserving
+\begin{equation}
+\pi\circ E=\text{id}:M\to M.
+\end{equation}
+The set of all smooth section of a vector bundle $(E,M,\pi)$ is denoted as $\Gamma(E)$.
+\end{definition}
+
+\begin{definition}
+A map $\varphi_{UW}:U\cap W\to \text{GL}(V)$ is called a \textbf{transition function} of the vector bundle $(E,M,\pi)$ if it satisfies the conditions
+\begin{enumerate}
+\item For $\forall p\in U$, $g_{UU}=id:U\to U$;
+\item If $p\in U\cap W\cap Z\ne\varnothing$, then
+\begin{equation}
+\varphi_{UW}(p)\cdot\varphi_{WZ}(p)\cdot\varphi(ZU)(p)=\text{id}:V\to V.
+\end{equation}
+\end{enumerate}
+These two conditions are called the \textbf{compatibility conditions}.
 \end{definition}
 
 \begin{theorem}
-
+Suppose $M$ is a $m$ dimensional smooth manifold, $\{U_\alpha\}_{\alpha\in\mathcal{A}}$ is an open covering of $M$, and $V$ is a $q$-dimensional space. If 
+\begin{equation*}
+\forall \alpha,\beta: U_\alpha\cap U_\beta\ne\varnothing, \exists \varphi_{\alpha\beta}:U_\alpha\cap U_\beta\to \text{GL}(V),
+\end{equation*}
+satisfies the compatibility conditions. Then there exists a vector bundle $(E,M,\pi)$ with the transition functions $\{\varphi_{\alpha\beta}\}$.
 \end{theorem}
+
+\begin{proof}
+The idea to prove the existence of such manifold $E$ comes from that a vector bundle can be treated as a manifold from pasting the vector space $V$ into each coordinate of points in $M$. So we start from the pasted manifold 
+\begin{equation*}
+\tilde{E}=\bigcup_{\alpha\in\mathcal{A}}\{\alpha\}\times U_\alpha\times V,
+\end{equation*} 
+and shrink the equivalent points, which defined by the transition functions, together. This equivalence $\sim$ for any two points $(\alpha,p,y)$ and $(\beta,p',y')$ in $\tilde E$ is defined as
+\begin{enumerate}
+\item $p=p',\forall p,p'\in U_\alpha\cap U_\beta$
+\item $y=y'\cdot g_{\alpha\beta}(p)$.
+\end{enumerate}
+The corresponding quotient group $E=\tilde E/~$ is a smooth manifold and the projection $\pi$ is defined as $\pi(\alpha,p,y)=p$. Then $(E,M,\pi)$ formed the vector bundle we need.
+\end{proof}
+
+
+
+\subsection{Exterior Differentiation}
+\begin{definition}
+A exterior $r$-form bundle is a vector bundle $(\Lambda^r(M*), M,\pi)$ where 
+\begin{equation}
+\Lambda^r(M^*) = \bigcup_{p\in M}\Lambda^r(T^*_p),
+\end{equation}
+The \textbf{exterior differential form} is the element of $A(M)$ defined as 
+\begin{equation}
+A(M)=\sum_{r=0}^mA^r(M),\quad A^r(M)=\Gamma(\Lambda^r(M^*)),
+\end{equation}
+where $\dim M=m$. And the $A(M)$ formed a so-called \textbf{graded algebra} with the wedge production as its multiplication
+\begin{equation}
+\begin{aligned}
+&\wedge:A^r(M)\times A^s(M)\to A^{r+s}(M),\\
+&\omega_1\wedge\omega_2(p)=\omega_1(p)\wedge\omega_2(p),
+\end{aligned}
+\end{equation}
+and it is zero for $r+s>m$.
+\end{definition}
+
+\begin{theorem}
+There exists a unique map, called \textbf{exterior derivative}, $d:A(M)\to A(M)$ that
+\begin{enumerate}
+\item $d(A^r(M))\subseteq A^{r+1}(M)$;
+\item $\forall\omega_1,\omega_2\in A(M):d(\omega_1+\omega_2)=d\omega_1+d\omega_2$;
+\item Given $\omega_1\in A^r(M)$, then
+\begin{equation}
+d(\omega_1\wedge\omega_2)=d\omega_1\wedge\omega_2+(-1)^r\omega_1\wedge\omega_2;
+\end{equation}
+\item If $f\in A^0(M)$, then $df$ is precisely the differential of $f$;
+\item If $f\in A^0(M)$m, then $d(df)=0$;
+\item (Poincar\'e's Lemma) $d^2(\omega)=d(d\omega)=0,\forall \omega\in A(M)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Given a $\omega\in A(M)$ that
+\begin{equation*}
+\omega|_U = a_{1,\dots,r}du^{1}\wedge\cdots\wedge du^r,
+\end{equation*}
+the mapping $d$ can be defined locally as
+\begin{equation}
+d(\omega|_U)=da_{1,\dots,r}\wedge du^{1}\wedge\cdots\wedge du^r.
+\end{equation}
+This definition satisfies the properties all the properties above. To illustrate the 3rd one, one, suppose $\omega=adu^{i_1}\wedge\cdots\wedge du^{i_r}$, then
+\begin{equation*}
+\begin{aligned}
+&d(\omega\wedge\gamma)\\
+=&[(da)b+a(db)]\wedge du^{i_1}\wedge\cdots\wedge du^{i_r}\wedge du^{j_1}\wedge\cdots\wedge du^{j_s}\\
+=&b(da)\wedge du^{i_1}\wedge\cdots\wedge du^{i_r}\wedge du^{j_1}\wedge\cdots\wedge du^{j_s}\\
+&+(-1)^radu^{i_1}\wedge\cdots\wedge du^{i_r}\wedge db\wedge du^{j_1}\wedge\cdots\wedge du^{j_s}\\
+=&d\omega\wedge\gamma+(-1)^r\omega\wedge d\gamma.
+\end{aligned}
+\end{equation*}
+$d^2f=0$ comes from the fact that 
+\begin{equation*}
+\frac{\partial^2f}{\partial u_i \partial u_j}=\frac{\partial^2f}{\partial u_j \partial u_i}.
+\end{equation*}
+To prove the $d^2=0$, it comes from the rule that
+\begin{equation*}
+\begin{aligned}
+d(d\omega) =& d(da\wedge du^1\wedge\cdots\wedge du^r)\\
+=&d^2a\wedge du^1\wedge\cdots\wedge du^r\\
+&-da\wedge d^2u^1\wedge\cdots\wedge^r+\cdots,
+\end{aligned}
+\end{equation*}
+where each term is zero due to $d^2f=0$. Last but not least, we need to prove this operation is well-defined, i.e. it is a local operator that if $\omega_1|_U=\omega_2|U$, then $d(\omega_1|_U)=d(\omega_2|_U)$. To show this, we just need to show that $d\omega|_U=0$ if $\omega|_U=0$. In fact, suppose a support function $h_W(x)$ defined on an open set $W\subseteq U$ that $h_W(x)=1,\forall x\in W$ and $h_W(x)=0,\forall x\notin W$. Then $h_W\cdot\omega\equiv0=\omega_W=$
+\begin{equation*}
+d(h_W\omega)=dh_W\wedge \omega+h_W\cdot d\omega=0,
+\end{equation*}
+which impilse $d\omega|_W=0$ since $dh_W(x)=0,\forall x\in W$.
+\end{proof}
+
+\begin{theorem}
+Given smooth manifold $M,N$ and a smooth map $f:M\to N$, then the induced map $f^*:A(N)\to A(M)$  commutes with the exterior derivative $d$, that is
+\begin{equation}
+d\circ f^*=f^*\circ d: A(N)\to A(M).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Here we use the induction to prove this theorem. First we need to show it is valid for all $\beta\in A^0(N)$, and $\beta\in A^1(N)$. But for $\beta\in A^0(N)$, it is valid by definition $f^*d\beta=d(\beta\circ f)$ due to $d\beta$ is the differential of $\beta$. For the case $\beta\in A^1(N)$, it can be expressed as $\beta=udv$ where $u,v$ are both smooth functions in $A^0(N)$, then
+\begin{equation*}
+\begin{aligned}
+f^*d(udv) &=f^*(du\wedge dv)\\
+&=(f^*du)\wedge(f^*dv)\\
+&=d(f^*u)\wedge d(f^*v)\\
+&=d(f^*udv).
+\end{aligned}
+\end{equation*}
+Now lets suppose $\beta\in A^r(N)$, then it can be expressed as $\beta_1\wedge\beta_2$ where $\beta_1\in A^1(N)$ and $\beta_2\in A^{r-1}(N)$, then
+\begin{equation*}
+\begin{aligned}
+f^*d(\beta_1\wedge\beta_2)&=f^*d\beta_1\wedge f^*\beta_2-f^*\beta_1\wedge f^*d\beta_2\\
+&=d(f^*\beta_1)\wedge f^*\beta_2-f^*\beta_1\wedge d(f^*\beta_2)\\
+&=d\circ f^*(\beta_1\wedge\beta_2),
+\end{aligned}
+\end{equation*}
+where $f^*(\beta_1\wedge\beta_2)=f^*\beta_1\wedge f^*\beta_2$ comes from the linearity of the maps $f^*$ and $d$.
+\end{proof}

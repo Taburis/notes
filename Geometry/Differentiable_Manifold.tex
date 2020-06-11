@@ -1,0 +1,25 @@
+\section{Manifolds}
+
+\subsection{Differetiable Manifolds}
+\begin{definition}
+A $m$-dimensional \textbf{manifold} or \textbf{topological manifold} is a Hausdorff spacce $M$ that $\forall x\in M$, $\exists U_x$ a neighborhood of $x$ that $U_x$ is homeomorphic to an open set in $\realR^m$. Suppose the homeomorphism is $\varphi_U:U\to\realR^m$, then $(U,\varphi_U)$ is called the \textbf{coordinate chart} of $M$. And the mapping $u=\varphi_U(y)$, $u=(u_1,\dots,u_m)$ is called the \textbf{local cooridnate} of the point $y\in U$. Two cooridnate charts $(U,\varphi_U)$ and $(V,\varphi_V)$ are called $C^r$-\textbf{compatible} if $\forall p\in U\cap V$:
+\begin{equation}
+\begin{aligned}
+&g(f(x))=x,\quad x=\varphi_U(p),\\
+f&=\varphi_U\circ\varphi_V^{-1}:\varphi_V(U\cap V)\to \varphi_U(U\cap V),\\
+g&=\varphi_V\circ\varphi_U^{-1}:\varphi_U(U\cap V)\to \varphi_V(U\cap V),
+\end{aligned}
+\end{equation}
+and $f,g\in C^r$ ($r$-th order of partial derivative exists and continuous). 
+\end{definition} 
+
+\begin{definition}
+A $C^r$-\textbf{differentiable structure} on a manifold $M$ is a coordinate charts $\mathcal{A}=\{(U,\varphi_U),(V,\varphi_V),\dots\}$ satisfying the following conditions
+\begin{enumerate}
+\item $\{U,V,\dots\}$ forms an open covering of $M$;
+\item Any two coordinate charts are $C^r$-compatible to each other;
+\item $\mathcal{A}$ is the \textbf{maximal}, that is, if a $(\alpha,\varphi_\alpha)$ is a coordinate chart that $C^r$-compatible with all the charts in $\mathcal{A}$, then $(\alpha,\varphi_\alpha)\in\mathcal{A}$.
+\end{enumerate}
+A manifold $M$ is called $C^r$\textbf{-differentiable manifold} if there's a $C^r$-differentiable structure given on $M$. A $f\in C^\infty$ is usually called \textbf{smooth}. So $C^\infty$-differentiable manifold is called smooth manifold.
+\end{definition}
+
