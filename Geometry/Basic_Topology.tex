@@ -1,0 +1,53 @@
+\section{Topological Spaces}
+\begin{definition}
+A \textbf{Topological space} is a pair $(H,\mathfrak{F})$ where $H$ is a set and $\mathfrak{F}$ is the collection of the subsets of $H$ satisfying the following axioms:
+\begin{enumerate}
+\item $\varnothing\in\mathfrak{F}$;
+\item Any arbitrary union of members of $\mathfrak{F}$ stills belong to $\mathfrak{F}$;
+\item Finite number of members of $\mathfrak{F}$ still belongs to $\mathfrak{F}$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+For a topological space $(H,\mathfrak{F})$:
+\begin{itemize}
+\item The sets in $\mathfrak{F}$ are called \textbf{open set}, the complement of a open set is called \textbf{closed set}.
+\item A open cover for $X$ is sequence of open sets ${U_i}_{i\in\mathcal{A}}\in\mathfrak{F}$ that
+\begin{equation}
+X\subseteq \bigcup_{i\in \mathcal{A}}U_i.
+\end{equation}
+If the number of the covers is finite, then it called a finite cover of $X$.
+\item A set $V$ is called a \textbf{compact set}, if for any open cover ${U_i}_{i\in\mathcal{A}}$ of $V$, there's a finite subsequence of ${U_i}_{i\in\mathcal{A}}$ formed a finite cover of $V$. 
+\item A \textbf{neighbourhood} of $p\in H$ is a subsect $V\subseteq H$ that $\exists U\in\mathfrak{F}:p\in U\subset V$.
+\item A \textbf{limit point} of $U\subset H$ is a point $p\in H$ that $\forall U_x\in\mathfrak{F}: U_x\cap U\ne\varnothing$. 
+\item Space $H$ is called \textbf{locally compact} if $\forall p\in H, \exists V:p\in U_x\subseteq V$ where $U_x$ is an open set and $V$ is a compact neighourhood of $p$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Suppose $f:X\to Y$ is a mapping from topological space $(X,\mathfrak{R})$ to $(Y,\mathfrak{F})$, then
+\begin{itemize}
+\item A \textbf{continuous mapping} if $\forall V\in \mathfrak{F}: f^{-1}(V)\in\mathfrak{R}$. 
+\item A \textbf{homeomorphism mapping} is a one-to-one continuous mapping $f$ that the inverse $f^{-1}$ is continuous. All of the self-homeomorphisms $f:X\to X$ formed a group, denoted as $\text{Homeo}(X)$. 
+\end{itemize}
+\end{definition}
+
+\begin{definition}(Separation axioms:)
+Suppose $(X,\mathfrak{F})$ is a topological space,
+\begin{itemize}
+\item $X$ is $T_0$, or \textbf{Kolmogorov}, if any two distinct points in $p\ne q,p,q\in\mathfrak{F}: \exists U_p,U_q\in\mathfrak{F}$ that $U_p\ne U_q$.
+\item $X$ is $T_1$, or \textbf{Fr\'{e}chet} or \textbf{Tikhonov},  
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+A \textbf{Hausdorff space} or $T_2$ \textbf{space} is a topological space $(H,\mathfrak{F})$ that $\forall x,y\in H$ and exists two neighborhood $U_x,U_x\in\mathfrak{F}$ such that $U_x\cap U_y=\varnothing$.
+\end{definition} 
+
+
+\begin{theorem}
+If $X$ is a locally compact Hausdorff space, then for any neighborhood $U_x$ of $x$, there exists a neighberhood $V$ such that $x\in V\subseteq\bar V\subseteq U$ and $\bar V$ is compact.
+\end{theorem}
+\begin{proof}
+The idea is that there should be an open covers ${W_i}$ for the boundary $\partial U$ and a neighborhood $V$ such that $\forall W_i: V\cap\notin W_i=\varnothing$ (Hausdorff). This implies $\bar V\cap \partial U=\varnothing$.  
+\end{proof}
