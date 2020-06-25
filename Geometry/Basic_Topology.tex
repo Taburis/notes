@@ -4,23 +4,26 @@ A \textbf{Topological space} is a pair $(H,\mathfrak{F})$ where $H$ is a set and
 \begin{enumerate}
 \item $\varnothing\in\mathfrak{F}$;
 \item Any arbitrary union of members of $\mathfrak{F}$ stills belong to $\mathfrak{F}$;
-\item Finite number of members of $\mathfrak{F}$ still belongs to $\mathfrak{F}$.
+\item The intersection of any finite number of members of $\mathfrak{F}$ still belongs to $\mathfrak{F}$.
 \end{enumerate}
 \end{definition}
 
 \begin{definition}
-For a topological space $(H,\mathfrak{F})$:
+For a topological space $(H,\mathfrak{H})$:
 \begin{itemize}
 \item The sets in $\mathfrak{F}$ are called \textbf{open set}, the complement of a open set is called \textbf{closed set}.
-\item A open cover for $X$ is sequence of open sets ${U_i}_{i\in\mathcal{A}}\in\mathfrak{F}$ that
+\item A open cover for $X$ is sequence of open sets $U_{i\in\mathcal{A}}\in\mathfrak{F}$ that
 \begin{equation}
 X\subseteq \bigcup_{i\in \mathcal{A}}U_i.
 \end{equation}
 If the number of the covers is finite, then it called a finite cover of $X$.
-\item A set $V$ is called a \textbf{compact set}, if for any open cover ${U_i}_{i\in\mathcal{A}}$ of $V$, there's a finite subsequence of ${U_i}_{i\in\mathcal{A}}$ formed a finite cover of $V$. 
-\item A \textbf{neighbourhood} of $p\in H$ is a subsect $V\subseteq H$ that $\exists U\in\mathfrak{F}:p\in U\subset V$.
-\item A \textbf{limit point} of $U\subset H$ is a point $p\in H$ that $\forall U_x\in\mathfrak{F}: U_x\cap U\ne\varnothing$. 
+\item A set $V$ is called a \textbf{compact set}, if for any open cover $U_{i\in\mathcal{A}}$ of $V$, there's a finite subsequence of $U_{i\in\mathcal{A}}$ formed a finite cover of $V$. 
+\item A \textbf{neighbourhood} of $p\in H$ is a subsect $V\subseteq H$ that $\exists U\in\mathfrak{H}:p\in U\subset V$.
+\item A \textbf{limit point} of $U\subset H$ is a point $p\in H$ that $\forall U_x\in\mathfrak{H}: U_x\cap U\ne\varnothing$. 
 \item Space $H$ is called \textbf{locally compact} if $\forall p\in H, \exists V:p\in U_x\subseteq V$ where $U_x$ is an open set and $V$ is a compact neighourhood of $p$.
+\item A \textbf{Closure} $\overline{U}$ of $U\subseteq H$ is the set contained all the limit points of $U$.
+\item A \textbf{Boundary} of $U$ is a set $\partial U:=\overline{U}\cap\overline{H\setminus U}$.
+\item A \textbf{basis} of $H$ is a subcollection $\mathfrak{G}\subset\mathfrak{H}$ that for any open set, it can be expressed as the union of open sets in $\mathfrak{G}$. Clearly the base formed an open cover of $H$.
 \end{itemize}
 \end{definition}
 
@@ -40,10 +43,25 @@ Suppose $(X,\mathfrak{F})$ is a topological space,
 \end{itemize}
 \end{definition}
 
-\begin{definition}
-A \textbf{Hausdorff space} or $T_2$ \textbf{space} is a topological space $(H,\mathfrak{F})$ that $\forall x,y\in H$ and exists two neighborhood $U_x,U_x\in\mathfrak{F}$ such that $U_x\cap U_y=\varnothing$.
-\end{definition} 
+\begin{theorem}
+Any compact set $U$ in Hausdorff space $(H,\mathfrak{H})$ is closed (contained all the limit points of itself).
+\end{theorem}
 
+\begin{proof}
+To proof $U$ is closed, we are going to show $H\setminus U$ is open which means
+\begin{equation}
+\forall x\in H\setminus U, \exists V_x\in\mathfrak{H}: V_x\subseteq H\setminus U.
+\end{equation}
+In fact
+\begin{equation}
+\forall x\in H\setminus U,\,\forall y\in U,\,\exists (U_y,V_y^x)\in\mathfrak{H}: x\in V_y^x,\,U_y\cap V_y^x=\varnothing
+\end{equation}
+and $\{U_y:y\in U\}$ formed an open cover of $U$ and the compactness requred that a finite subset $F\subseteq U$ that $\{U_y:y\in F\}$ formed an finite open cover of $U$. However, 
+\begin{equation}
+V=\bigcap_{y\in F}V_y^x
+\end{equation}
+is a open set that $x\in V$ but $V\cap U=\varnothing$.
+\end{proof}
 
 \begin{theorem}
 If $X$ is a locally compact Hausdorff space, then for any neighborhood $U_x$ of $x$, there exists a neighberhood $V$ such that $x\in V\subseteq\bar V\subseteq U$ and $\bar V$ is compact.

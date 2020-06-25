@@ -26,3 +26,44 @@ A manifold $M$ is called $C^r$\textbf{-differentiable manifold} if there's a $C^
 \end{definition}
 
 The manifold is \textbf{locally compact} since any manifolds are homeomorphic to $\realR^m$ which is locally compact. It also shows that the properties of $\realR^m$ preserved by homeomorphism is also the properties of the manifold. 
+
+\begin{lemma}
+Suppose $(U,\varphi_U)$ is a coordinate chart in a smooth manifold $M$, $V\ne\varnothing$ is an open set in $M$ with $\overline{V}$ compact, and $\overline{V}\subset U$. Then there exists a smooth function $h:M\to\realR$ such that
+\begin{enumerate}
+\item $0\le h\le 1$;
+\item $h(p)$ has the properties:
+\begin{equation}
+h(p)=\left\{
+\begin{aligned}
+&0,\quad p\in V,\\
+&1,\quad p\notin U.
+\end{aligned}
+\right.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We need to prove this lemma in three steps.
+Suppose $B_a(0),B_b(0)$ are balls at the origin in $\realR^m$ with radius $a<b$, respectively. Then we can construct a function $g$ as follow:
+\begin{equation}
+g(x)=\left\{
+\begin{aligned}
+&\exp\Bigg\{\frac{1}{(x-a^2)(x-b^2)}\Bigg\},&\quad x\in (a^2,b^2),\\
+&0 ,&\quad \text{otherwise}.
+\end{aligned}
+\right.
+\end{equation}
+Furthermore, the $f(x)$ defined as
+\begin{equation}
+f(x)=\frac{\int_x^{+\infty} g(t)dt}{\int_{-\infty}^{+\infty}g(t)dt},
+\end{equation}
+are continuous and satisfy the conditions that $f(x)=1,\forall x\in B_a(0)$ while $f(x)=0,\forall x\notin B_b(0)$.
+Futhermore, let $V'\subset U'$ are both open sets in $\realR^m$, and $\overline{V'}$ is compact, then there exists an open cover $\{B_a(x),B_b(x):x\in V\}$ which $\cup B_b(x)\subset U'$ and $\overline{V'}\subset \cup B_a(x)$. The compactness implies there is finite subcover $\{\{B_a(x_i),B_b(x_i):1\le i\le r\}$ and the function $f_i$ is the function defined previous corresponds to the $i$th ball. Then the function
+\begin{equation}
+F=1-\prod_i(1-f_i),
+\end{equation}
+satisfies the requirement that $F(x)=1,\forall x\in V$ and $F(x)=0,\forall x\notin U$. To extend this lemma to the smooth manifold, the local compactness makes sure that there is a open set $W$ such that $\overline{V}\subset W\subset\overline{W}\subset U$. The mapping $\varphi_U(W)=U'$ and $\varphi_U(V)=V'$, then the function $h(p)=F\circ\varphi_U$ is the function in the lemma.
+\end{proof}
+
+

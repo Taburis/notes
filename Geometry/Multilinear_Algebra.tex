@@ -352,7 +352,7 @@ A map $\varphi_{UW}:U\cap W\to \text{GL}(V)$ is called a \textbf{transition func
 \item For $\forall p\in U$, $g_{UU}=id:U\to U$;
 \item If $p\in U\cap W\cap Z\ne\varnothing$, then
 \begin{equation}
-\varphi_{UW}(p)\cdot\varphi_{WZ}(p)\cdot\varphi(ZU)(p)=\text{id}:V\to V.
+\varphi_{UW}(p)\cdot\varphi_{WZ}(p)\cdot\varphi_{ZU}(p)=\text{id}:V\to V.
 \end{equation}
 \end{enumerate}
 These two conditions are called the \textbf{compatibility conditions}.
@@ -486,3 +486,51 @@ where $f^*(\beta_1\wedge\beta_2)=f^*\beta_1\wedge f^*\beta_2$ comes from the lin
 \begin{definition}
 A manifold $M$ is called \textbf{orientable} if there exists a continuous and nonvanishing exterior differential $m$-form $\omega$ on $M$. $\omega$ is called the \textbf{orientation}. Given two orientations $\omega_1,\omega_2$, they are equivalent if $\omega_1=f\omega_2$ where $f$ is a positive defined functions.
 \end{definition}
+
+\begin{theorem}
+Suppose $\sigma$ is a basis of a manifold $M$, then there's a subset $\sigma_0\subset \sigma$ which forms a locally finite open cover of $M$.
+\end{theorem}
+\begin{proof}
+Just a reminder here that locally finite means that only finite sets in $\sigma_0$ are intersect with any given set $A\subset M$.
+First, noticed that $M$ is homeomorphism to $\realR^m$ which satisfies the second countable axiom, we can construct
+\begin{equation}
+M_i=\bigcup_{1\le r\le i}\overline{U}_r,\quad \lim_{i\to\infty}M_i=M.
+\end{equation}
+and $M_i$ is compact so that it can be covered by finite sets, say $\{U_i\}_{i\in\alpha_i}$. Then we have another sequence defined as 
+\begin{equation}
+N_i=\bigcup_{i\in\alpha_i}\overline{U}_{i},\quad \lim_{i\to\infty}N_i=M.
+\end{equation}
+There is relation that
+\begin{equation}
+M_i\subset N_i\subset N_{i+1}^\circ,
+\end{equation}
+where $N_{i+1}^\circ$ is the set of all the interior points of $N_{i+1}$. Now let's consider a inner $I_i$ and outer set $O_i$ as
+\begin{equation}
+I_i=N^\circ_{i+1}\setminus N_i,\quad O_i=N_{i+1}\setminus N^\circ_{i-1}.
+\end{equation}
+Based on this definition, we know that $I_i\subset O_i$ where $O_i$ is open and the $I_i$ is compact (here we assume $N_{-1}=\varnothing$). That means there's a finite open covers from $\sigma$, denoted as $\{U_r\}_{r\in\beta_i}$, that 
+\begin{equation}
+I_i\subset\bigcup_{r\in\beta_i}\overline{U}_r\subset O_i.
+\end{equation}
+Furthermore, $I_i$ forms a cover of $M$ and for any $A\subset M$, exists a number $n>0$ such that $A\subset \cup_{r<n}I_r$. Since $O_{i+1}\cap N_i=\varnothing$, then $A\cap K_{m}=\varnothing,\forall m>n+1$. 
+\end{proof}
+
+\begin{definition}
+Suppose $f:M\to\realR$ is a function defined on manifold $M$. The \textbf{support} of $f$, denoted as $\text{supp}\,f$, is the closure of the set of points at which $f$ is nonzero:
+\begin{equation}
+\text{supp}\,f=\overline{\{p\in M|f(p)\ne0\}}.
+\end{equation}
+This definition can be extended to exterior form similarly.
+\end{definition}
+
+\begin{theorem}(Parition the unity)
+Suppose $\sigma$ is an open cover of the smooth manifold $M$, then there exists a family of smooth functions $\{g_\alpha\}$ on $M$ such taht
+\begin{enumerate}
+\item $0\le g_\alpha\le1$ and $\text{supp}\,g_\alpha$ is compact. $\exists W_\alpha\in\sigma$ that $\text{supp}\,g_\alpha\subset W_\alpha$;
+\item $\forall p\in M$, $\exists U$, a neighbourhood of $p$, which only intersect with finitely many of $\text{supp}\,g_\alpha$;
+\item $\sum_\alpha g_\alpha=1$.
+\end{enumerate}
+This family $\{g_\alpha\}$ is called the \textbf{partition of unity}.
+\end{theorem}
+
+
