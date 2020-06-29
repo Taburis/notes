@@ -533,4 +533,6 @@ Suppose $\sigma$ is an open cover of the smooth manifold $M$, then there exists 
 This family $\{g_\alpha\}$ is called the \textbf{partition of unity}.
 \end{theorem}
 
-
+\begin{proof}
+For a given manifold $M$ and the open cover $\sigma$, the cooridnate neighbourhood $\{U_\alpha\}$ is an other open cover of $M$ and $\forall U_i\in\{U_\alpha\},\,\exists W_i\in\sigma: U_i\subset W_i$. It impliese a locally finite subcover $\sigma_0\subset\sigma$, say $\sigma_0=\{U_i\}_{i\in\alpha}$. Moreover, we can define $N_i=M\setminus U_i$. Clearly that $N_i\subset\overline{U}_i$ and $N_i$ is compact since $\overline{U}_i$ is compact. Then there is a finite open cover $\{Z_j^i\}_{1\le j\le s_i}$ which is $\overline{Z}_j^i\subset U_i$ and $M\setminus N_i\subset V_i\subset\overline{V}_i\subset U_i$ where $V_i=\cup_{j=1}^{s_i}Z_j^i$. These $\{V_i\}$ forms a open covering of $M$ and thus have a subcollection of then which are locally finite. By the partition lemma, we have a function $h_i(p)=1,\,\forall p\in V_i$ and $h_i(p)=0,\,\forall p\notin U_i$. This 
+\end{proof}
