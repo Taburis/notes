@@ -1,0 +1,23 @@
+\section{Quantum Mechanics}
+
+\subsection{Wave Function}
+
+According to the central limit theory, the measurement of a particle at position $x=0$ would leads to a Gaussian distribution around $x=0$ with a uncertainty, say $\sigma$, then the wave function for this distribution has to be 
+\begin{equation}
+\varphi(x)\sim \exp\left(-\frac{x^2}{4\sigma^2}\right),
+\end{equation}
+so that $|\varphi(x)|^2\sim e^{-\frac{x^2}{2\sigma^2}}$. Then the wave function in momentum space is
+\begin{equation}
+\begin{aligned}
+\varphi(k)&\sim\int_{-\infty}^{+\infty}\exp\left(-\frac{x^2}{4\sigma^2}\right)\cdot\exp\left\{-\frac{i}{\hbar}xk\right\}dk,\\
+&\sim \exp\left\{-\frac{k^2\sigma^2}{\hbar^2}\right\},
+\end{aligned}
+\end{equation}
+where we used the formula of \textbf{Hubbard-Stratonovich} transformation
+\begin{equation}
+\exp\left(-\frac{\alpha k^2}{2}\right)=\sqrt{\frac{1}{2\pi\alpha}}\int_{-\infty}^{+\infty}\exp\left(-\frac{x^2}{2\alpha}-ikx\right)dx.
+\end{equation}
+The distribution of the momentum measurement is $|\varphi(k)|^2\sim \exp\{-2k^2\sigma^2/\hbar^2\}$, and the variation is $\sigma_k^2= 4\hbar^2/\sigma^2$ which means that it satisfies the lower bound of the uncertainty principle $\sigma_x\sigma_k=\hbar/2$. To minimize the variation, we require that $\sigma_k=\sigma_x=\sigma$ and it would leads to $\sigma=\sqrt{\hbar/2}$ and the $\varphi(x)=\exp\{-\frac{x^2}{2\hbar}\}$.
+
+
+\subsection{Path Integral}
