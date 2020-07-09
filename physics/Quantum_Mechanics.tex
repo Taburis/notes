@@ -20,4 +20,34 @@ where we used the formula of \textbf{Hubbard-Stratonovich} transformation
 The distribution of the momentum measurement is $|\varphi(k)|^2\sim \exp\{-2k^2\sigma^2/\hbar^2\}$, and the variation is $\sigma_k^2= 4\hbar^2/\sigma^2$ which means that it satisfies the lower bound of the uncertainty principle $\sigma_x\sigma_k=\hbar/2$. To minimize the variation, we require that $\sigma_k=\sigma_x=\sigma$ and it would leads to $\sigma=\sqrt{\hbar/2}$ and the $\varphi(x)=\exp\{-\frac{x^2}{2\hbar}\}$.
 
 
-\subsection{Path Integral}
+The Born interpretation suggests that a wave function $|\varphi(\boldsymbol{x},t)|^2$ should be treated as the probability density at the position $(\boldsymbol{x},t)$ and this leads to a requirement
+\begin{equation}
+\int_V |\varphi(\boldsymbol{x},t)|^2d^3x=\text{Constant}.
+\end{equation}
+With this, we can normalize this integral to 1. This conservation can be extended as
+\begin{equation}
+\begin{aligned}
+\partial_\mu J^\mu(x) &= 0,\\ 
+J^\mu(x) &= (c\rho,\boldsymbol{J}),\\
+\rho(x)&=|\varphi(x)|^2,\\
+\boldsymbol{J}(x)&=\rho(x)\boldsymbol{v}(x).
+\end{aligned}
+\end{equation}
+
+
+\begin{theorem}
+Satisfying the Schr\"{o}dinger's equation
+\begin{equation}
+i\hbar\partial_0\psi=H\psi,
+\end{equation}
+is a sufficient condition for a wave function to be probability conserved.
+\end{theorem}
+\begin{proof}
+In fact, if $\psi$ satisfies the Schr\"{o}dinger's equation, then
+\begin{equation}
+i\hbar\frac{d}{dt}\int_V|\psi(x)|^2d^3x=i\hbar\int_V\left\{\psi^*(H\psi)-(H\psi)^*\psi\right\}d^3x,
+\end{equation}
+and this integral vanishes as long as $H$ is a Hermitian operator.
+\end{proof}
+
+

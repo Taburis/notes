@@ -12,6 +12,17 @@ To formulate the parton model, the scattering of two point-like particles in mas
 \end{equation}
 where the $s,t$ and $u$ are Mandelstam variables. Then the cross section is
 \begin{equation}
-\frac{d\sigma}{d\hat t}=\frac{2\pi\alpha^2Q_i^2}{\hat s^2}\left(\frac{\hat s^2+(\hat s+\hat t)^2}{\hat t}\right),
+\frac{d\sigma}{d\hat t}=\frac{2\pi\alpha^2Q_i^2}{\hat s^2}\left(\frac{\hat s^2+(\hat s+\hat t)^2}{\hat t}\right),\label{eq:2to2_point-like_massless_limit}
 \end{equation}
-where is the electric charge of parton in the unit of $e$. Let the $f_i(\xi$ 
+where is the electric charge of parton in the unit of $e$. To characterise the parton inside the proton, let $f_i(x)$ be a function of probability of a type $i$ parton inside the proton carrying a longitudinal fraction $x$ ($0\le x\le 1$) of the total momentum $P$ of the proton. And considering the scattering of $e_{k}Q_{p}\to e_{k'}Q_{p+q}$ where $Q$ is a parton in the proton with momentum $P$. 
+\begin{equation}
+\begin{aligned}
+\hat s&= (p+k)^2=2p\cdot k =2xP\cdot k=xs,\\
+x &\approx \frac{Q^2}{2P\cdot q},\quad Q^2=-q^2,
+\end{aligned}
+\end{equation}
+where $s$ is the square of the electron-proton center of mass energy and the last approximation comes from the assumption that $(p+q)^2\approx0$, the mass of the parton is negligible. $q^2$ is space-like to produce a large transverse momentum final state so that $Q^2$ is positive. Then the cross section of a electron scattering from a parton inside a proton is just a scaled up of the original Eq.~\ref{eq:2to2_point-like_massless_limit}, two point-like particle scattering, into
+\begin{equation}
+\frac{d^2\sigma}{dxdQ^2}=\sum_if_i(x)Q^2_i\cdot\frac{2\pi\alpha^2}{Q^4}\left[1+\bigg(1-\frac{Q^2}{xs}\bigg)^2\right].
+\end{equation}
+This scaling is called \textbf{Bjorken scaling}.

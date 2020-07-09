@@ -28,12 +28,12 @@ A manifold $M$ is called $C^r$\textbf{-differentiable manifold} if there's a $C^
 The manifold is \textbf{locally compact} since any manifolds are homeomorphic to $\realR^m$ which is locally compact. It also shows that the properties of $\realR^m$ preserved by homeomorphism is also the properties of the manifold. 
 
 \begin{lemma}
-Suppose $(U,\varphi_U)$ is a coordinate chart in a smooth manifold $M$, $V\ne\varnothing$ is an open set in $M$ with $\overline{V}$ compact, and $\overline{V}\subset U$. Then there exists a smooth function $h:M\to\realR$ such that
+Suppose $(U,\varphi_U)$ is a coordinate chart in a smooth manifold $M$, $V\ne\varnothing$ is an open set in $M$ with $\overline{V}$ compact, and $\overline{V}\subset U$. Then there exists a smooth function $\mathcal{I}_{V\subset U}:M\to\realR$ (indicator function) such that
 \begin{enumerate}
-\item $0\le h\le 1$;
-\item $h(p)$ has the properties:
+\item $0\le \mathcal{I}_{V\subset U}\le 1$;
+\item $\mathcal{I}_{V\subset U}(p)$ has the properties:
 \begin{equation}
-h(p)=\left\{
+\mathcal{I}_{V\subset U}(p)=\left\{
 \begin{aligned}
 &0,\quad p\in V,\\
 &1,\quad p\notin U.
@@ -41,7 +41,7 @@ h(p)=\left\{
 \right.
 \end{equation}
 \end{enumerate}
-\end{lemma}
+\end{lemma}\label{lemma:openset_indicator}
 
 \begin{proof}
 We need to prove this lemma in three steps.
@@ -67,3 +67,142 @@ satisfies the requirement that $F(x)=1,\forall x\in V$ and $F(x)=0,\forall x\not
 \end{proof}
 
 
+\subsection{Submanifold}
+
+\begin{theorem}(Inverse function theorem)
+Suppose $W\subset\realR^m$ is an open set and $f:W\to\realR^m$ is a smooth mapping. Given a point $x\in W$, if the Jacobian determinant is nonzere:
+\begin{equation}
+\det\left(\frac{\partial f^i}{\partial x^j}\right)\bigg|_x\ne 0,
+\end{equation} 
+exists a neighbourhood $U\subset W$ of $x$ that $V=f(U)$ is a neighbourhood of $f(x)$ in $\realR^m$ and $f$ has a smooth inverse function on $V$.
+\end{theorem}
+
+This inverse function theorem can be extended to manifold by using the coordinate charts.
+\begin{theorem}
+Let $M_1, M_2$ are two $m$-dimensional smooth manifolds, $f:M_1\to M_2$ is a smooth map. Suppose that $f_*:T_p(M_1)\to T_{f(p)}(M_2)(M_2)$ is a isomorphism at the point $p\in M_1$, then there exists an open set $U_1\subset M$ such that $U_2=f(U_1)$ is a neighbourhood of $f(p)$ in $M_2$ and $f|_{U_1}:U_1\to U_2$ is a diffeomorphism. 
+\end{theorem}
+
+\begin{proof}
+Choose the coordinate system of $M_1, M_2$ are $(V_1,\varphi_1),(V_2\varphi_2)$ such that $f(V_1)\subset V_2$ and $V_1$ is a neighbourhood of $p$. Then we can define a smooth function $\tilde f$ in the neighbour $V_1$
+\begin{equation}
+\tilde f=\varphi_2\circ f\circ \varphi_1^{-1}:\varphi_1(V_1)\to\varphi_2(V_2).
+\end{equation}
+$\tilde f_*$ have nonzero Jacobian determinant at $p$ since $f_*:T_p(M_1)\to T_{f(p)}(M_2)(M_2)$ is a isomorphism by assumption. The inverse function theorem implise that there's an open subset $\tilde V_1$ such that $\tilde f_{\tilde V_1}|$ is a diffeomorphism. Let $\tilde V_2=\tilde f(\tilde V_1)$, then we get
+\begin{equation}
+f=\varphi_2\circ\tilde f\circ \varphi_1:\varphi^{-1}_1(V_1)\to \varphi_2^{-1}(V_2),
+\end{equation}
+is a diffeomorphism on $U_1=\varphi^{-1}(V_1)$.
+\end{proof}
+
+Suppose $M$ and $N$ are $m$-dimensional and $n$-dimensional smooth manifold, respectively, $f$ is a smooth mapping $f:M\to N$ and $f_*$ is an injective at a point $p$. Then we call $f_*$ is \textbf{nondegenerate}. For the case $m<n$, the nondegenerate mapping means the rank of the Jacobian of $f$ is $m$.
+
+\begin{theorem}
+Suppose $M,N$ are two smooth manifold with dimensional $m$ and $n$, $m<n$, respectively, a smooth mapping $f:M\to N$ is nondegenerate at point $p\in M$. Then there exists a local cooridate system $(U,u^i)$ around $p$ and $(V,v^i)$ around $f(p)$ such that $f(U)\subset V$ and $f|_U$ can be expressed by the local coordinates as follows: $\forall p \in U$,
+\begin{equation}
+\left\{
+\begin{array}{l}
+v^i(f(x))=u^i(x),\quad 1\le i\le m,\\
+v^\gamma(f(x))=0, \quad m+1\le \gamma\le n.
+\end{array}
+\right.
+\end{equation}
+\end{theorem}\label{theorem:imbedding_local_cooridnate_system}
+
+\begin{proof}
+Since the $f_*$ is nondegenerate at $p$, then there exists a local cooridinate system $(U;u^i),(V,v^\alpha)$ such that $f$ can be represented as
+\begin{equation}
+\begin{aligned}
+&v^\alpha=f^\alpha(u^1,\dots,u^m), \quad 1\le \alpha\le n,\\
+&u^i(p)=v^\alpha[f(p)]=0,\\
+&\frac{\partial(f^1,\dots,f^m)}{\partial(u^1,\dots,u^m)}\bigg|_p\ne 0.
+\end{aligned}
+\end{equation}
+Let $I_{n-m}=\{(w^{m+1},\dots,w^{n}\mid|w^i|<\delta\}$, so that $f$ can be extended to $\tilde f:U\times I_{n-m}\to V$ such that
+\begin{equation*}
+\begin{aligned}
+\tilde f^i(u^1,\dots,u^m,w^{m+1},\dots,w^n)&=f^i(u^1,\dots,u^m),\\
+\tilde f^\gamma(u^1,\dots,u^m,w^{m+1},\dots,w^n)&=w^\gamma+f^\gamma(u^1,\dots,u^m),
+\end{aligned}
+\end{equation*}
+where $1\le i\le m$ and $m+1\le\gamma\le n$. 
+The Jacobian of $\tilde f$ at $(u^i,w^\gamma)=(0,0)$ is nondegenerate, then $\tilde f$ is a diffeomorphism which means that $(u^i,w^\gamma)$ can be used as a local coordinate system $v^\alpha$ in $V$ such that 
+\begin{equation*}
+\left\{
+\begin{aligned}
+v^i=u^i,&\quad 1\le i\le m,\\
+v^\gamma = w^\gamma, &\quad m+1\le\gamma\le n,
+\end{aligned}\right.
+\end{equation*}
+On the other hand $\tilde f|_{U\times\{0\}}=f|_U$. Using the coordinate above, the map $f|_U$ is given as
+\begin{equation}
+f(u^1,\dots, u^m)=(u^1,\dots, u^m,0,\dots, 0).
+\end{equation} 
+\end{proof}
+
+This theorem indicates that if $f_*$ is an injective map at $p$, then $f$ is injective around $p$ as well. It also leads to the formal definition of the submanifold
+\begin{definition}
+Suppose $M$ and $N$ are smooth manifolds and $\varphi:M\to N$ is a smooth map such that
+\begin{enumerate}
+\item $\varphi$ is injective;
+\item The $\varphi_*:T_p(M)\to T_{\varphi(p)}(N)$ is nondegenerate at any $p\in M$.
+\end{enumerate}
+Then $(\varphi, M)$ is called a \textbf{smooth submanifold}, or \textbf{imbedded submanifold}, of $N$.
+If only the condition 2 satisfied, which means that $f$ is injective locally but not so globally, then $(\varphi, M)$ is called an \textbf{immersed submanifold} and $\varphi$ is called an \textbf{immersion}.
+
+A \textbf{Closed submanifold} $(\varphi, M)$ is a smooth submanifold of $N$ satisfying
+\begin{enumerate}
+\item $\varphi(M)$ is a closed subset of $N$,
+\item $\forall x\in M$, $\exists (U, u^i)$, a local cooridinate system, such that $\varphi(M)\cap U$ can be expressed as
+\begin{equation}
+u^{m+1}=\dots=u^{n}=0, \quad m=\dim M.
+\end{equation}  
+\end{enumerate}
+
+If $(\varphi,M)$ is a smooth submanifold of $N$ and the map $\varphi$ is homeomorphism, then $(\varphi,M)$ is called \textbf{regular submanifold} and $\varphi$ is called \textbf{regular imbedding} of $M$ into $N$. 
+\end{definition}
+
+
+\begin{theorem}
+The sufficient and necessary condition for a $m$-dimensional submanifold $(\varphi, M)$ is a regular submanifold in a $n$-dimensional smooth manifold $N$ is that $M$ is a closed manifold while $N$ is an open manifold.
+\end{theorem}
+
+\begin{proof}
+To prove the sufficiency, suppose $(\varphi,M)$ is a regular submanifold in $N$. Given a point $p\in M$, the theorem~\ref{theorem:imbedding_local_cooridnate_system} shows that there's a local system $(U,u^i)$ where $U\subset U_p$, the neighbourhood of $p$, and $(V,v^\alpha)$ where $V\subset V_{\varphi(p)}$, such that
+\begin{equation}
+\varphi(u^1,\dots, u^m)=(u^1,\dots, u^m,0,\dots,0).
+\end{equation}
+Then it shows that the cooridnate of $\varphi(M)\cap V$ is defined by
+\begin{equation}
+v^{m+1}=\dots=v^n=0.
+\end{equation}\label{proof:boundary_coordinate}
+To show $\varphi(M)$ is a closed subset of $N$, it is equivalent to show that $\varphi(M)$ is closed relatvie to $W=\cup_{q\in \varphi(M)}V_{q}$ since $V_q$ is neighbourhood of $q$ so that $W$ is open. Now let's suppose $x\in \overline{\varphi(M)}$, then exists a point $q\in \varphi(M)$ that $x\in V_q$ by definition of the closure. Furthermore, $\varphi(M)\cap V_q$ is defined by Eq.~\ref{proof:boundary_coordinate}, it means that $\varphi(M)\cap V_q$ is closed by the diffeomorphism. By assumption, $x\in\overline{\varphi(M)}\cap V_q$ and hence $s\in \varphi(M)$ which shows $\overline{\varphi(M)}\subseteq \varphi(M)$. 
+
+To show the necessarity, assuming $(\varphi, M)$ is a closed submanifold, then there's a coordinate local coordinate system $(U,u^i)$ around $p$ and $(V,v^\alpha)$ $\varphi(p)$ which represents the $\varphi(M)\cap V$ by the Eq.~\ref{proof:boundary_coordinate}. Under this coordinate, the Jacobian matrix $\partial(\varphi^1,\dots,\varphi^m)/\partial(u^1,\dots,u^m)\ne 0$ around the point $u^i(p)=0$, which implies that there's a inverse function $\varphi^{-1}$ on $V$. Since $\varphi$ is injection and continuous, we just need to show $\varphi^{-1}$ is a continuous mapping to make sure $\varphi$ is homeomorphism. In fact, we can assume that $V=V_{\delta}$ where $V_\delta=\{(v^1,\dots,v^n)\mid|v^\alpha|<\delta\}$ and $\varphi^{-1}(V_{\delta_1}\subseteq U$ if $\delta_1<\delta$ which implies that for arbitrary neighbourhood $U$ ther's a $\delta_1>0$ such that $\varphi^{-1}(\varphi(M)\cap V_{\delta_1})\subseteq U$. It means that $\varphi^{-1}$ is continuous as well and hence $\varphi$ is diffeomrophism.
+\end{proof}
+
+\begin{corollary}
+A submanifold $(\varphi, M)$ of a smooth manifold $N$ is a regular imbedded submanifold if and only if $\forall p\in M$, $\exists(V;v^\alpha)$, a local coordinate system around $\varphi(p)\in N$, such that $v^\alpha(\varphi(p))=0$ and $\varphi(M)\cap V$ is defined by
+\begin{equation}
+v^{m+1}=v^{m+2}=\dots=v^n=0.
+\end{equation}
+\end{corollary}
+
+Furthermore, a continuous one-to-one mapping from a compact set to a Hausdorff space is homemorphism, it leads to
+\begin{theorem}
+Suppose $(\varphi,M)$ is a submanifold of a smooth manifold $N$. If $M$ is compact, then $\varphi:M\to N$ is a regular imbedding. 
+\end{theorem}
+
+\begin{definition}\index{Smooth Manifold!Region}
+Given a $m$-dimensional smooth manifold $M$. a \textbf{region} $D$ with \textbf{boundary} is a subset of $M$ with these two kinds of points
+\begin{enumerate}
+\item \textbf{Interior points}\index{Smooth Manifold!Interior point}: For each interior point $p$, there's a neighbourhood $U_x\subseteq M$ that $U_x\subseteq D$.
+\item \textbf{Boundary points}\index{Smooth Manifold!Boundary}: For each boundary point $p$, there's a local coordinate chart $(U,u^i)$ such that $u^i(p)=0$ and 
+\begin{equation}
+U\cap D=\{q\in U|u^m(q)\ge 0\}.
+\end{equation}
+A coordinate system with the property above is called \textbf{adapted coordinate system} for the boundary point $p$.
+The set of all boundary points are the boundary of $D$, denoted as $\partial D$.
+\end{enumerate}
+\end{definition}
+
+With the adapted coordinate system, the boundary is locally defined by the equation $u^m=0$ which is a closed set. It means that $(\varphi,\partial D)$ is a regular closed submanifold.
