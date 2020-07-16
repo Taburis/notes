@@ -1,0 +1,303 @@
+\section{Exterior Differential Calculus}
+
+\subsection{Exterior Differentiation}
+\begin{definition}
+A exterior $r$-form bundle is a vector bundle $(\Lambda^r(M*), M,\pi)$ where 
+\begin{equation}
+\Lambda^r(M^*) = \bigcup_{p\in M}\Lambda^r(T^*_p),
+\end{equation}
+The \textbf{exterior differential form} is the element of $A(M)$ defined as 
+\begin{equation}
+A(M)=\sum_{r=0}^mA^r(M),\quad A^r(M)=\Gamma(\Lambda^r(M^*)),
+\end{equation}
+where $\dim M=m$. And the $A(M)$ formed a so-called \textbf{graded algebra} with the wedge production as its multiplication
+\begin{equation}
+\begin{aligned}
+&\wedge:A^r(M)\times A^s(M)\to A^{r+s}(M),\\
+&\omega_1\wedge\omega_2(p)=\omega_1(p)\wedge\omega_2(p),
+\end{aligned}
+\end{equation}
+and it is zero for $r+s>m$.
+\end{definition}
+
+\begin{theorem}
+There exists a unique map, called \textbf{exterior derivative}, $d:A(M)\to A(M)$ that
+\begin{enumerate}
+\item $d(A^r(M))\subseteq A^{r+1}(M)$;
+\item $\forall\omega_1,\omega_2\in A(M):d(\omega_1+\omega_2)=d\omega_1+d\omega_2$;
+\item Given $\omega_1\in A^r(M)$, then
+\begin{equation}
+d(\omega_1\wedge\omega_2)=d\omega_1\wedge\omega_2+(-1)^r\omega_1\wedge\omega_2;
+\end{equation}
+\item If $f\in A^0(M)$, then $df$ is precisely the differential of $f$;
+\item If $f\in A^0(M)$m, then $d(df)=0$;
+\item (Poincar\'e's Lemma) $d^2(\omega)=d(d\omega)=0,\forall \omega\in A(M)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Given a $\omega\in A(M)$ that
+\begin{equation*}
+\omega|_U = a_{1,\dots,r}du^{1}\wedge\cdots\wedge du^r,
+\end{equation*}
+the mapping $d$ can be defined locally as
+\begin{equation}
+d(\omega|_U)=da_{1,\dots,r}\wedge du^{1}\wedge\cdots\wedge du^r.
+\end{equation}
+This definition satisfies the properties all the properties above. To illustrate the 3rd one, one, suppose $\omega=adu^{i_1}\wedge\cdots\wedge du^{i_r}$, then
+\begin{equation*}
+\begin{aligned}
+&d(\omega\wedge\gamma)\\
+=&[(da)b+a(db)]\wedge du^{i_1}\wedge\cdots\wedge du^{i_r}\wedge du^{j_1}\wedge\cdots\wedge du^{j_s}\\
+=&b(da)\wedge du^{i_1}\wedge\cdots\wedge du^{i_r}\wedge du^{j_1}\wedge\cdots\wedge du^{j_s}\\
+&+(-1)^radu^{i_1}\wedge\cdots\wedge du^{i_r}\wedge db\wedge du^{j_1}\wedge\cdots\wedge du^{j_s}\\
+=&d\omega\wedge\gamma+(-1)^r\omega\wedge d\gamma.
+\end{aligned}
+\end{equation*}
+$d^2f=0$ comes from the fact that 
+\begin{equation*}
+\frac{\partial^2f}{\partial u_i \partial u_j}=\frac{\partial^2f}{\partial u_j \partial u_i}.
+\end{equation*}
+To prove the $d^2=0$, it comes from the rule that
+\begin{equation*}
+\begin{aligned}
+d(d\omega) =& d(da\wedge du^1\wedge\cdots\wedge du^r)\\
+=&d^2a\wedge du^1\wedge\cdots\wedge du^r\\
+&-da\wedge d^2u^1\wedge\cdots\wedge^r+\cdots,
+\end{aligned}
+\end{equation*}
+where each term is zero due to $d^2f=0$. Last but not least, we need to prove this operation is well-defined, i.e. it is a local operator that if $\omega_1|_U=\omega_2|U$, then $d(\omega_1|_U)=d(\omega_2|_U)$. To show this, we just need to show that $d\omega|_U=0$ if $\omega|_U=0$. In fact, suppose a support function $h_W(x)$ defined on an open set $W\subseteq U$ that $h_W(x)=1,\forall x\in W$ and $h_W(x)=0,\forall x\notin W$. Then $h_W\cdot\omega\equiv0=\omega_W=$
+\begin{equation*}
+d(h_W\omega)=dh_W\wedge \omega+h_W\cdot d\omega=0,
+\end{equation*}
+which impilse $d\omega|_W=0$ since $dh_W(x)=0,\forall x\in W$.
+\end{proof}
+
+\begin{theorem}
+Given smooth manifold $M,N$ and a smooth map $f:M\to N$, then the induced map $f^*:A(N)\to A(M)$  commutes with the exterior derivative $d$, that is
+\begin{equation}
+d\circ f^*=f^*\circ d: A(N)\to A(M).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Here we use the induction to prove this theorem. First we need to show it is valid for all $\beta\in A^0(N)$, and $\beta\in A^1(N)$. But for $\beta\in A^0(N)$, it is valid by definition $f^*d\beta=d(\beta\circ f)$ due to $d\beta$ is the differential of $\beta$. For the case $\beta\in A^1(N)$, it can be expressed as $\beta=udv$ where $u,v$ are both smooth functions in $A^0(N)$, then
+\begin{equation*}
+\begin{aligned}
+f^*d(udv) &=f^*(du\wedge dv)\\
+&=(f^*du)\wedge(f^*dv)\\
+&=d(f^*u)\wedge d(f^*v)\\
+&=d(f^*udv).
+\end{aligned}
+\end{equation*}
+Now lets suppose $\beta\in A^r(N)$, then it can be expressed as $\beta_1\wedge\beta_2$ where $\beta_1\in A^1(N)$ and $\beta_2\in A^{r-1}(N)$, then
+\begin{equation*}
+\begin{aligned}
+f^*d(\beta_1\wedge\beta_2)&=f^*d\beta_1\wedge f^*\beta_2-f^*\beta_1\wedge f^*d\beta_2\\
+&=d(f^*\beta_1)\wedge f^*\beta_2-f^*\beta_1\wedge d(f^*\beta_2)\\
+&=d\circ f^*(\beta_1\wedge\beta_2),
+\end{aligned}
+\end{equation*}
+where $f^*(\beta_1\wedge\beta_2)=f^*\beta_1\wedge f^*\beta_2$ comes from the linearity of the maps $f^*$ and $d$.
+\end{proof}
+
+\subsection{Integrals of Differential Forms}
+\begin{definition}
+A manifold $M$ is called \textbf{orientable} if there exists a continuous and nonvanishing exterior differential $m$-form $\omega$ on $M$. $\omega$ is called the \textbf{orientation}. Given two orientations $\omega_1,\omega_2$, they are equivalent if $\omega_1=f\omega_2$ where $f$ is a positive defined functions.
+\end{definition}
+
+\begin{theorem}
+Suppose $\sigma$ is a basis of a manifold $M$, then there's a subset $\sigma_0\subset \sigma$ which forms a locally finite open cover of $M$.
+\end{theorem}\label{theorem:locally_finite_subcover}
+\begin{proof}
+Just a reminder here that locally finite means that only finite sets in $\sigma_0$ are intersect with any given set $A\subset M$.
+First, noticed that $M$ is homeomorphism to $\realR^m$ which satisfies the second countable axiom, we can construct
+\begin{equation}
+M_i=\bigcup_{1\le r\le i}\overline{U}_r,\quad \lim_{i\to\infty}M_i=M.
+\end{equation}
+and $M_i$ is compact so that it can be covered by finite sets, say $\{U_i\}_{i\in\alpha_i}$. Then we have another sequence defined as 
+\begin{equation}
+N_i=\bigcup_{i\in\alpha_i}\overline{U}_{i},\quad \lim_{i\to\infty}N_i=M.
+\end{equation}
+There is relation that
+\begin{equation}
+M_i\subset N_i\subset N_{i+1}^\circ,
+\end{equation}
+where $N_{i+1}^\circ$ is the set of all the interior points of $N_{i+1}$. Now let's consider a inner $I_i$ and outer set $O_i$ as
+\begin{equation}
+I_i=N^\circ_{i+1}\setminus N_i,\quad O_i=N_{i+1}\setminus N^\circ_{i-1}.
+\end{equation}
+Based on this definition, we know that $I_i\subset O_i$ where $O_i$ is open and the $I_i$ is compact (here we assume $N_{-1}=\varnothing$). That means there's a finite open covers from $\sigma$, denoted as $\{U_r\}_{r\in\beta_i}$, that 
+\begin{equation}
+I_i\subset\bigcup_{r\in\beta_i}\overline{U}_r\subset O_i.
+\end{equation}
+Furthermore, $I_i$ forms a cover of $M$ and for any $A\subset M$, exists a number $n>0$ such that $A\subset \cup_{r<n}I_r$. Since $O_{i+1}\cap N_i=\varnothing$, then $A\cap K_{m}=\varnothing,\forall m>n+1$. 
+\end{proof}
+
+\begin{definition}
+Suppose $f:M\to\realR$ is a function defined on manifold $M$. The \textbf{support} of $f$, denoted as $\text{supp}\,f$, is the closure of the set of points at which $f$ is nonzero:
+\begin{equation}
+\text{supp}\,f=\overline{\{p\in M|f(p)\ne0\}}.
+\end{equation}
+This definition can be extended to exterior form similarly.
+\end{definition}
+
+\begin{theorem}(Parition the unity)
+Suppose $\sigma$ is an open cover of the smooth manifold $M$, then there exists a family of smooth functions $\{g_\alpha\}$ on $M$ such taht
+\begin{enumerate}
+\item $0\le g_\alpha\le1$ and $\text{supp}\,g_\alpha$ is compact. $\exists W_\alpha\in\sigma$ that $\text{supp}\,g_\alpha\subset W_\alpha$;
+\item $\forall p\in M$, $\exists U$, a neighbourhood of $p$, which only intersect with finitely many of $\text{supp}\,g_\alpha$;
+\item $\sum_\alpha g_\alpha=1$.
+\end{enumerate}
+This family $\{g_\alpha\}$ is called the \textbf{partition of unity}.
+\end{theorem}\label{theorem:parition_the_unity}
+
+\begin{proof}
+For a given manifold $M$, there is a topological basis $\Sigma$ that every $U\in\Sigma$ is a cooridnate neighbourhood and $\overline{U}$ is compact. Moreover, $\forall U\in\Sigma,\exists W\in\sigma:\overline{U}\subset W$. By the theorem~\ref{theorem:locally_finite_subcover}, there's a countably subset $\Sigma_0=\{U_\alpha\}$, $\Sigma_0\subset\Sigma$, which is locally finite open cover of $M$. 
+
+Now we construct another open cover $\{V_\alpha\}$ such that $\overline{V}_\alpha\subset U_\alpha$. In fact, we can define $N_\alpha=M\setminus U_\alpha$. Clearly that $N_\alpha\subset\overline{U}_\alpha$ and $N_\alpha$ is compact since $\overline{U}_\alpha$ is compact. Then there is a sequence of coordinate neighbourhood $\{Z_j^\alpha\}_{1\le j\le s_\alpha}$, $\overline{Z}_j^\alpha\subset U_\alpha$ forms an open cover of $M\setminus N_\alpha$ such that $M\setminus N_\alpha\subset V_\alpha\subset\overline{V}_\alpha\subset U_\alpha$ where $V_\alpha=\cup_{j=1}^{s_\alpha}Z_j^\alpha$. These $\{V_\alpha\}$ forms a open covering of $M$ and thus have a subcollection which are locally finite. 
+
+By the lemma~\ref{lemma:openset_indicator}, there's sequence of indicator functions $\mathcal{I}_{V_\alpha\subset U_\alpha}(p)$ for each $\alpha$. Suppose $I=\sum_\alpha\mathcal{I}_{V_\alpha\subset U_\alpha}$, it is smooth since for any open set $U$ contained $p$, $U$ can only intersect with finitely many of $U_\alpha$ due to locally finiteness of $\Sigma_0$ which impliese that only finite sum exists for function $I(p)$. Then we can define 
+\begin{equation}
+g_\alpha=\frac{\mathcal{I}_{V_\alpha\subset U_\alpha}}{I},
+\end{equation}
+which is the function we wanted.
+\end{proof}
+
+
+With the help of the theorem~\ref{theorem:parition_the_unity}, we are able to define the integral of exterior form on a manifold as follow
+\begin{definition}
+Suppose $M$ is a $m$-dimensional smooth oriented manifold and $\varphi$ is an exterior differential $m$-form defined on $M$ with compact support. The \textbf{integral} of exterior differential $m$-form is defined as
+\begin{equation}
+\int_M\varphi=\sum_\alpha\int_{M}g_\alpha\cdot\varphi=\sum_\alpha\int_{W_i}g_\alpha\cdot\varphi,
+\end{equation} 
+where $W_i\in\Sigma$ and $\Sigma$ is an open cover of the support of $\varphi$. By the theorem~\ref{theorem:parition_the_unity}, the support of $g_\alpha$ is contained in one of the element of $W_i\in\Sigma$. Suppose $\varphi\cdot g_\alpha$ in $W_i$ with respect to the coordinate $u^1,\dots, u^m$, can be represented as
+\begin{equation}
+\int_{W_i}g_\alpha\cdot\varphi=\int_{W_i}f(u^1,\dots,u^m)du^1\wedge\cdots\wedge du^m,
+\end{equation}
+this integral is defined as Riemann integral
+\begin{equation}
+\int_{W_i}f(u^1,\dots,u^m)du^1\cdots du^m.
+\end{equation}
+Suppose $\varphi$ is a differential $r$-form, $r<m$, with compact support, then the integral of $\varphi$ can be defined on the any $r$-dimensional submanifold $N$ of $M$ by a imbedding $h:N\to M$:
+\begin{equation}
+\int_{h(M)}\varphi = \int_N h^*\varphi,
+\end{equation}
+where $h^*\varphi$ is a differential $r$-form defined on a $r$-dimensional manifold.
+\end{definition}\label{definition:exterior_form_integral}
+
+This definition is self-consistant as the following conditions are satisfied
+\begin{enumerate}
+\item Since the orientation is defined on $M$, then Jacobian of changing the cooridnates are positive defined
+\begin{equation*}
+J=\frac{\partial(v^1,\dots,v^m)}{\partial(u^1,\dots,u^m)}>0.
+\end{equation*}
+\item Suppose $f,f'$ are respresentation of $\varphi\cdot g_\alpha$ in $W_i,W_j$, respectively, and the $\text{supp}\,\varphi\cdot g_\alpha\subset W_i\cap W_j$, the integral
+\begin{equation*}
+\int_{W_i\cap W_j}f'dv^1\cdots dv^m=\int_{W_i\cap W_j}f'|J|du^1\cdots du^m,
+\end{equation*}
+and due to the relation
+\begin{equation*}
+\begin{aligned}
+\varphi\cdot g_\alpha& = fdu^1\wedge\cdots\wedge du^m\\
+&=f'dv^1\wedge\cdots\wedge dv^m,
+\end{aligned}
+\end{equation*}
+implise $f=Jf'$ which leads to the following equation
+\begin{equation}
+\int_{W_i}\varphi\cdot g_\alpha=\int_{W_j}\varphi\cdot g_\alpha.
+\end{equation}
+\item Suppose $\{h_\beta\}$ is another partition function, then
+\begin{equation*}
+\sum_\beta\int_Mh_\beta\cdot\varphi=\sum_\beta\sum_\alpha\int_Mh_\beta \cdot g_\alpha\cdot \varphi=\sum_\alpha\int_Mg_\alpha\cdot\varphi.
+\end{equation*}
+\end{enumerate} 
+
+\begin{theorem}
+Suppose $D$ is a region with boundary $\partial D$ in manifold $M$, if $M$ is orientable, then $\partial D$ is orientable with an orientation
+\begin{equation}
+(-1)^mdu^1\wedge\wedge\cdots\wedge du^{m-1}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Since $\partial D$ is closed, it is a regular imbedded submanifold of $m$-dimensional smooth manifold $M$ so that there's a local coordinate system $(U;u^i)$ that
+\begin{equation}
+U\cap\partial D=\{q\in U|u^m(q)=0\}.
+\end{equation}
+The orientable of $M$ implise that if $(V;v^i)$ is another coordinate system that two systems are related by $v^i=f^i(u^1,\dots,u^m)$, then
+\begin{equation}
+\frac{\partial(v^1,\dots,v^m)}{\partial(u^1,\dots,u^m)}>0.
+\end{equation}\label{proof:eq_consistent_orientation}
+Furthermore, since $u^m(q)\ge 0,v^m(q)\ge 0$ for all $q\in D$ which implies that for any fixed $(u^1,\dots,u^{m-1})$, the $\partial v^m/\partial u^m>0$. Without loose generality, we can treat $u^m=v^m$ on $D$ and Eq.~\ref{proof:eq_consistent_orientation} implies
+\begin{equation}
+\frac{\partial(v^1,\dots,v^{m-1})}{\partial(u^1,\dots,u^{m-1})}>0,
+\end{equation}
+which means that the orientation is consistent on $U\cap V\cap \partial D$.
+\end{proof}
+
+Without any specification, the $\partial D$ will denote the boundary of $D$ with the induced orientation. 
+
+\begin{theorem}(Stockes' Formula)
+Suppose the $D$ is a region with boundary $\partial D$ in a $m$-dimensional oriented smooth manifold $M$ and $\omega$ is a exterior differential $(m-1)$-form on $M$ with a compact support, then
+\begin{equation}
+\int_Dd\omega=\int_{\partial D}\omega.
+\end{equation} 
+\end{theorem}
+
+\begin{proof}
+The theorem~\ref{theorem:parition_the_unity} implies that $\exists g_\alpha$ such that $\omega=\sum_\alpha g_\alpha\cdot \omega$ which leads to
+\begin{equation*}
+\begin{aligned}
+\int_Dd\omega=&\sum_\alpha\int_Dd(g_\alpha\cdot\omega),\\
+\int_{\partial D}\omega=&\sum_\alpha\int_{\partial D}g_\alpha\cdot\omega,\\
+\end{aligned}
+\end{equation*}
+so that we only needs to approve that
+\begin{equation}
+\int_Dd(g_\alpha\cdot\omega)=\int_{\partial D}g_\alpha\cdot\omega.
+\end{equation}\label{proof_stockes:eq:target}
+Based on the theorem~\ref{theorem:parition_the_unity}, it is reasonable to assume that the $\text{supp}\,\omega\subset U$ where $(U;u^i)$ is a local coordinate system consistent with the orientation of $M$. Then the $\omega,d\omega$ can be expressed as
+\begin{equation*}
+\begin{aligned}
+\omega&=\sum_j(-1)^{j-1}a_jdu_1\wedge\cdots\wedge du^{j-1}\wedge du^{j+1}\wedge\cdots\wedge du^m,\\
+d\omega&=\sum_j\frac{\partial a_j}{\partial u^j}du^1\wedge\cdots\wedge du^m.
+\end{aligned}
+\end{equation*}
+where $a_j$ is a smooth function on $U$. We need to consider two cases:
+\begin{enumerate}
+\item $\partial D\cap U=\varnothing$,
+\item $\partial D\cap U\ne\varnothing$.
+\end{enumerate}
+For the first case, it can be either $U\subset M\setminus D$ or $U\subset D^\circ$, interior of $D$. The former case would leads to both sides of Eq.~\ref{proof_stockes:eq:target} to be 0. For the latter case, the $a_j$ can be extended smoothly to a cube $C_K=\{u\in\realR^m\mid|u^i|<K,1\le i\le m\}$ such that $U\subset C_K$ by setting $a_j=0$ outside the $U$ since $\text{supp}\,\omega\subset U$. Then we have
+\begin{equation*}
+\begin{aligned}
+\int_Dd\omega&=\sum_j\int_{C_K}\frac{\partial a_j}{\partial u^j}du^1\cdots du^m\\
+&=\sum_j\int\left(\int_{-K}^K\frac{\partial a_j}{\partial u^j}du^j\right)du^1\dots du^{j-1}du^{j+1}\dots du^m\\
+&=0,
+\end{aligned}
+\end{equation*}
+since $a_j$ vanishes on the boundary of $C_K$.
+
+For the case $\partial D\cap U\ne\varnothing$, then we may assume $(U;u^i)$ is an adapted local coordinate system and we can choose the cube $C_K=\{u\in\realR^m\mid |u^i|<K,1\le i\le m-1,0\le u^m\le K\}$ such that $U\cap D\subset C_K$ and we can extend $a_j$ smoothly to $C_K$ as we mentioned above. Then for the right side of Eq.~\ref{proof_stockes:eq:target}:
+\begin{equation*}
+\begin{aligned}
+\int_{\partial D}g_\alpha\cdot\omega=&\int_{U\cap \partial D}\omega\\
+=&\sum_j(-1)^{j-1}\int_{U\cap \partial D}a_j\\
+&\quad du^1\wedge\cdots\wedge du^{j-1}\wedge du^{j+1}\wedge\cdots\wedge du^m\\
+=&(-1)^{m-1}\int_{U\cap \partial D}a_mdu^1\wedge\cdots\wedge du^{m-1}\\
+=&-\int\cdots\int_{-K}^Ka_m(u^1,\dots,u^{m-1},0)\\
+&\quad du^1\cdots du^{m-1}.
+\end{aligned}
+\end{equation*}
+The third equation comes from the fact that $du^m=0$ on $\partial D$ so that all the terms contained $du^m$ vanish. Last equation is based on the induced orientation. 
+On the left side of the Eq.~\ref{proof_stockes:eq:target}
+\begin{equation*}
+\begin{aligned}
+\int_{D}d(g_\alpha\cdot\omega)=&\int_{U\cap \partial D}d\omega\\
+=&\sum_j\int_{U\cap \partial D}\frac{\partial a_j}{du^j}\quad du^1\wedge\cdots\wedge du^m\\
+=&-\int\cdots\int_{-K}^Ka_m(u^1,\dots,u^{m-1},0)\\
+&\quad du^1\cdots du^{m-1},
+\end{aligned}
+\end{equation*}
+where only $m$th component left since the extension assumption that the $a_j$ vanishes outside $\partial D\cap U$. Hence we proved both sides of Eq.~\ref{proof_stockes:eq:target} is true.
+\end{proof}
