@@ -1,7 +1,7 @@
 \section{Stochastic Processes}
 
 \subsection{Brownian Motion}
-\begin{definition}
+\begin{definition}\label{Definition:Brownian_motion}
 Given a space $(\Omega,\mathfrak{R},\mathbb{P})$ and a given increments $0=t_0<t_1<\dots<t_n$, a continuous function $W(t),t\in[0,\infty)$, with $W(0)=0$ is called a \textbf{Brownian motion} if it satisfies any one of the follow three condition:
 \begin{enumerate}
 \item $D(t_i)\ci D(t_j),\forall i\ne j$ and $D(t_i)\sim N(0,t_i-t_{i-1})$ where $D(t_i)=W(t_i)-W(t_{i-1})$;
@@ -72,3 +72,13 @@ then the proof left is to show $\var\left(\int_0^T[dD(t)]^2\right)=0$. Note that
 \end{equation*}
 The last step comes from the fact that $\int_0^T (dt)^2\le dT\int_0^T dt\to0$. The second last step comes from the $\expect [D(t_i)]^4=M_D^{(4)}(0)=3(t_i-t_{i-1}$, where $M_D(t)$ is the mgf of $D(t_i)$. Again it leads to 0 as requiring $\max(dt)\to0$.
 \end{proof}
+
+The theorem above can be summarized as
+\begin{equation}
+\begin{aligned}
+dW(t)dW(t)&=dt+o(dt),\\
+dW(t)dt&\sim o(dt),\\
+dtdt&\sim o(dt).
+\end{aligned}
+\end{equation}
+It implies that only the first quantities are need to be considered in an integral, the rest can be disregarded.

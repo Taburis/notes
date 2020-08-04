@@ -127,6 +127,28 @@ The 2nd condition also implies that Fubini's theorem valid for any $h(x,y)$ inte
 This leads to 4th condition holds.
 \end{proof}
 
+\begin{theorem}
+Suppose $X\sim f_X(x)$ and $Y\sim f_Y(y)$ are two independent variables, then the PDF of $Z=XY$ is given by the formula
+\begin{equation}
+f_{Z}(z)=\int_{-\infty}^\infty f_X(z/y)f_Y(y)\frac{dy}{|y|}.
+\end{equation} 
+\end{theorem}
+\begin{proof}
+To get the PDF of the $Z$, we first construct the CDF of $Z$ as
+\begin{equation}
+\begin{aligned}
+\mathbb{P}(Z\le z)=&\mathbb{P}(XY\le z)\\
+=&\mathbb{P}(XY\le z,Y<0)+\mathbb{P}(XY\le z,Y\ge 0)\\
+=&\mathbb{P}(X\ge z/Y,Y<0)+\mathbb{P}(X\le z/Y,Y\ge0)\\
+=&\left(\int_{-\infty}^0\int_{z/y}^\infty +\int_0^\infty \int_{-\infty}^{z/y}\right)\bigg[f_X(x)f_Y(y)dx\bigg]dy.
+\end{aligned}
+\end{equation}
+The PDF is obtained from differentiate the formula above with respect to $z$:
+\begin{equation}
+\int^{\infty}_0f_X(z/y)f_Y(y)\frac{dy}{y}-\int_{-\infty}^0f_X(z/y)f_Y(y)\frac{dy}{y}.
+\end{equation}
+\end{proof}
+
 
 \subsection{Information and Conditioning}
 For a given probability space $(\Omega, \mathfrak{R},\mathbb{P})$, $\Omega$ suppose to contained all the possible events occur, and the $\sigma$-algebra $\mathfrak{R}$ represents all the possible set to be distinguished, or measured by probability $\mathbb{P}$. The information about the event is ability to label the event with more details. This means that the more information we have, the smaller subset of $\Omega$ can be measured. Based on this idea, a $\sigma$-algebra $\mathfrak{G}\subseteq \mathfrak{R}$ stays for the limit we can measure under certain information condition.
