@@ -1,0 +1,43 @@
+\section{Stochastic calculus}
+
+\subsection{It\^{o} Integral}
+
+\subsubsection{It\^{o} Integral of Simple Functions}
+
+\begin{definition}
+Given a probability Brownian motion $W(t)$ with a filter $\mathcal{F}(t)$, and $f(t)$ which is a $\mathcal{F}(t)$-measuable simple
+ function. The \textbf{It\^{o} integral} $I(T)$ for the simple function $f(t)$, the values are discrete in the interval $(t_0=0,\dots,t_n=T)$, is defined as
+\begin{equation}
+I(T)=\int_0^Tf(t)dW(t)=\sum_{i=0}^{m-1}f(t_i)[W(t_{i+1})-W(t_i)].
+\end{equation}
+\end{definition}\index{It\^{o} Integral}
+
+\begin{theorem}
+It\^{o} integral have the following properties
+\begin{enumerate}
+\item \textbf{Linearity}: For $c\in\realR$ and another $\mathcal{F}(t)$-measurable simple function $g(t)$, $c\int_0^T f(t)dt = \int_0^T cf(t)dt$ and $\int_0^T [f(t)+g(t)]dt = \int_0^T f(t)dt+\int_0^Tg(t)dt$;
+\item \textbf{Adapted}: $I(t)$ is continuous and $\mathcal{F}(t)$-measurable;
+\item $I(t)$ is a \textbf{martingale};
+\item \textbf{It\^{o} isometry}: $\expect I^2(t)=\expect \int_0^tf^2(u)du$;\index{It\^{o} Integral!It\^{o} isometry}
+\item \textbf{Quadratic variation}: $[I,I](t)=\int_0^tf^2(u)du$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{It\^{o} isometry:} Expanding the integral, we get
+\begin{equation*}
+\begin{aligned}
+&\expect\left\{\int_0^Tf(t)dW(t)\right\}^2\\
+=&\expect\left\{\sum_if(t_i)^2dW^2(t_i)\right\}+\sum_{i>j}f(t_i)f(t_j)\expect[D(t_i)]\expect[D(t_j)]\\
+=&\expect\left\{\sum_if(t_i)^2dt_i\right\}=\int_0^Tf(t)^2dt.
+\end{aligned}
+\end{equation*} 
+The second term above vanishes due to the property 1 in Def.~\ref{Definition:Brownian_motion} and the $dW^2=dt$ used in the first term.
+\textbf{Conitnuity}: For a given $t$, we can always find a small enough $dt$ such that
+\begin{equation*}
+\begin{aligned}
+I(t+dt)-I(t)&=f(t)[dW(t+dt)-dW(t)]\\
+\end{aligned}
+\end{equation*}
+and the continuity is the consequence from the fact that $\lim_{dt\to0}dW(t)\to 0$. 
+\end{proof}

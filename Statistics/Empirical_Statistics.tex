@@ -1,0 +1,21 @@
+\subsection{Empirical Statistics}
+
+\begin{definition}
+A \textbf{empirical cumulative distribution function} (ECDF) $F_n(x)$ is defined as
+\begin{equation}
+F_n(x)=\frac{1}{n}\sum_{i=1}^n\mathbb{I}_{X_i\le x},
+\end{equation} 
+where $X_i\sim f(x),i=1,\dots,n$, are independent, and $\mathbb{I}_{X_i\le x}$ is a Bernoulli random variable with parameter that $p=F(x)$, where $F(x)$ is the CDF of $f(x)$. 
+\end{definition}
+
+\begin{theorem}
+Suppose $F(x)$ is the CDF of random variable $X\sim f(x)$, given the ECDF $F_n(X)$ for $F(x)$, then
+\begin{itemize}
+\item ECDF $F_n(x)$ is a unbiased estimator of $F(x)$.
+\item $D_n(x)=F_n(x)-F(x)$ is a Brownian bridge.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+The ECDF is a unbiased estimation of $F(x)$ since $\sum_{i=1}^n \mathbb{I}_{X\le x}\sim b(n,p)$, a binomial distribution so that $\expect[nF_n(x)]=pn=F(x)n$. Defining a normalized ECDF $D_n(x)=F_n(x)-F(x)$, $\expect D_n(x)=0$. For every CDF $F(x)$, it usually exists a number $x_{\text{max}}$ such that $F(x<x_{\text{max}})=1$, then the ECDF $F_n(x)$ of $F(x)$ will have the same property that $F_n(x<x_{\text{max}})=1$ which implies that $D_n(x=0)=D_n(x=x_{\text{max}})=0$, which shows that $D_n(x)$ is a Brownian bridge. 
+\end{proof}
