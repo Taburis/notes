@@ -228,15 +228,3 @@ since, by induction, we assume the equation valid for $n-1$ case, and for $n$ te
 \end{equation*}
 as the $\sum_{i=1}^{n-1}t_i/(1-t_n)=1$. On the other hand, a expectation of $X$ can be approximated by a sequence of simple function like $X_n=\sum x_n\mathbb{P}(A_{x_n})$ and $\sum\mathbb{P}(A_{x_n})=1$ by definition, where $A_{x_n}=X^{-1}[x_n,x_n+1/n]$. These two points lead to this theorem.
 \end{proof}
-
-
-\begin{definition}
-A sequence of $\sigma$-algebra $\mathfrak{F}(t)$, ordered by a parameter $t$, is called a \textbf{Filtration} if $\mathfrak{F}(s)\subseteq\mathfrak{F}(t),\forall s\le t$. Given a sequence of random varialbes $X(t)$ indexed by $t\in[0,T]$ is called an \textbf{Adapted Stochastic Process} if $X(t)$ is $\mathfrak{F}(t)$-measurable $\forall t\in[0,T]$. A stochastic process $X(t)$ is called \textbf{Martingale} if 
-\begin{equation}
-\expect[X(t)|\mathfrak{F}(s)]=X(s),\quad\forall s\le t\in[0,T].
-\end{equation}
-Furthermore, let $f(x),g(x)$ are both Borel-measurable functions, we call $X(t)$ as a \textbf{Markov Process} if 
-\begin{equation}
-\expect[f(X(t))|\mathfrak{F}(s)]=g(X(s))\quad\forall s\le t\in[0,T].
-\end{equation} 
-\end{definition}

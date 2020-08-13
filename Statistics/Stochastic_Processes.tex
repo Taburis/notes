@@ -1,5 +1,16 @@
 \section{Stochastic Processes}
 
+\begin{definition}
+A sequence of $\sigma$-algebra $\mathfrak{F}(t)$, ordered by a parameter $t$, is called a \textbf{Filtration} if $\mathfrak{F}(s)\subseteq\mathfrak{F}(t),\forall s\le t$. Given a sequence of random varialbes $X(t)$ indexed by $t\in[0,T]$ is called an \textbf{Adapted Stochastic Process} if $X(t)$ is $\mathfrak{F}(t)$-measurable $\forall t\in[0,T]$. A stochastic process $X(t)$ is called \textbf{Martingale} if 
+\begin{equation}
+\expect[X(t)|\mathfrak{F}(s)]=X(s),\quad\forall s\le t\in[0,T].
+\end{equation}
+Furthermore, let $f(x),g(x)$ are both Borel-measurable functions, we call $X(t)$ as a \textbf{Markov Process} if 
+\begin{equation}
+\expect[f(X(t))|\mathfrak{F}(s)]=g(X(s))\quad\forall s\le t\in[0,T].
+\end{equation} 
+\end{definition}
+
 \subsection{Brownian Motion}
 \begin{definition}\label{Definition:Brownian_motion}
 Given a space $(\Omega,\mathfrak{R},\mathbb{P})$ and a given increments $0=t_0<t_1<\dots<t_n$, a continuous function $W(t),t\in[0,\infty)$, with $W(0)=0$ is called a \textbf{Brownian motion} if it satisfies any one of the follow three condition:
@@ -82,3 +93,27 @@ dtdt&\sim o(dt).
 \end{aligned}
 \end{equation}
 It implies that only the first quantities are need to be considered in an integral, the rest can be disregarded.
+
+
+\subsection{Brownian Bridge}
+
+\begin{definition}
+A \textbf{Gaussian process} $X(t),t\ge0$, is a stochstic process that has the property that, for arbitrary times $0<t_1<\dots<t_n$, the random variables $X(t_i),i=1,\dots,n$ are jointly normally distributed. 
+\end{definition}
+
+
+\begin{definition}
+A \textbf{Brownian bridge} is a Brownian motion $X(t)$ subject to the condition that $W(0)=X(T)=0$. The expectation of the bridge at time $t$ is defined as
+\begin{equation}
+B(t)=\expect(X(t)|X(T)=0),\quad t\in [0,T].
+\end{equation}
+\end{definition}
+
+Easy to see, Brownian motion is a Gaussian process. Given a Brownian motion $W(t),t>0$, then
+\begin{equation}
+X(t)=W(t)-\frac{t}{T}W(T),
+\end{equation}
+is a Brownian bridge. From this construction, we have
+\begin{equation}
+\expect X(t)=\expect\left[W(t)-\frac{t}{T}W(T)\right] = 0
+\end{equation}
