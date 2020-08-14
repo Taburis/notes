@@ -19,8 +19,8 @@ Given a space $(\Omega,\mathfrak{R},\mathbb{P})$ and a given increments $0=t_0<t
 \item $\expect \boldsymbol{W} = \boldsymbol{0}$ and $\var \boldsymbol{W}=\boldsymbol{\Sigma}$, where $\boldsymbol{W}$ is a jointly normal distribution $\boldsymbol{W}=(W_1,\dots,W_n)$ and
 \begin{equation}
 \begin{aligned}
-\boldsymbol{\Sigma}&=
-\begin{bmatrix}
+&\boldsymbol{\Sigma}=\\
+&\begin{bmatrix}
 \expect [W^2(t_1)], & \expect[W(t_1)W(t_2)],&\dots &\expect[W(t_1)W(t_n)]\\
 \expect[W(t_2)W(t_1)], &\expect [W^2(t_2)], &\dots&\expect[W(t_2)W(t_n)]\\
 \vdots &\vdots &\dots & \vdots\\
@@ -117,3 +117,8 @@ is a Brownian bridge. From this construction, we have
 \begin{equation}
 \expect X(t)=\expect\left[W(t)-\frac{t}{T}W(T)\right] = 0
 \end{equation}
+Further more, the Brownian bridge $X^{a\to b}(t)$ with a generalized condition $X(0)=a,X(T)=b$ can be constructed as 
+\begin{equation}
+X^{a\to b}(t)=a+(b-a)\frac{t}{T}+X(t),
+\end{equation}
+where $X(t)$ is a standard Brownian bridge ($X(0)=X(T)=0$). In this case, $\expect X^{a\to b}(t)=a+(b-a)t/T$.
