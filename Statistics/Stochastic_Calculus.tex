@@ -41,3 +41,23 @@ I(t+dt)-I(t)&=f(t)[dW(t+dt)-dW(t)]\\
 \end{equation*}
 and the continuity is the consequence from the fact that $\lim_{dt\to0}dW(t)\to 0$. 
 \end{proof}
+
+\begin{theorem}
+Let $f(x,t)$ be a function for which the partial derivatives $f_t,f_x$ and $f_{xx}$ are defined and continuous, and let $W(t)$ be a Brownian motion. Then, for every $T\ge0$, then
+\begin{widetext}
+\begin{equation}
+f(T,W(T))=f(0,W(0))+\int_0^T f_t(t,W(t))dt+\int_0^Tf_x(t,W(t))dW(t)+\frac{1}{2}\int_0^Tf_{xx}(t,W(t))dt.
+\end{equation}
+\end{widetext}
+\end{theorem}
+
+\begin{proof}
+By the Taylor expansion of $f$,
+\begin{equation}
+df=\partial_t f dt+\partial_xfdx+\frac{1}{2}\partial_{xx}f(dx)^2+\cdots,
+\end{equation}
+then the integral will be equation to the summation of the left side
+\begin{equation}
+f(T,X)-f(T_0,X_0)=\int_{T_0}^T\partial_t f dt
+\end{equation}
+\end{proof}

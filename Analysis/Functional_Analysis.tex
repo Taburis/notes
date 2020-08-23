@@ -2,6 +2,62 @@
 
 \subsection{Measure Theory}
 
+\subsubsection{Collections of sets}
+
+\begin{definition}
+A collection of sets $\mathfrak{S}$ is called a \textbf{semi-ring} if
+\begin{enumerate}
+\item $\varnothing\in\mathfrak{S}$;
+\item $\forall A,B\in\mathfrak{S}:\,A\cap B\in\mathfrak{S}$;
+\item If $A, A_1\in\mathfrak{R}$ and $A_1\subseteq A$, then $\exists A_i\in\mathfrak{S},i=2,\dots,n$ so that
+\begin{equation}
+A=\bigcup^n_{i=1} A_i,\quad \forall i\ne j:A_i\cap A_j=\varnothing.
+\end{equation} 
+\end{enumerate}
+\end{definition}
+
+
+\begin{definition}
+A collection of sets $\mathfrak{R}$ is called a \textbf{ring} if $\forall A,B\in\mathfrak{R}$:
+\begin{enumerate}
+\item $A\cap B\in\mathfrak{R}$,
+\item $A\triangle B\in\mathfrak{R}$.
+\end{enumerate}
+\end{definition}
+
+A ring $\mathfrak{R}$ is also closed for the operation union and difference since
+\begin{equation}
+\begin{aligned}
+A\cup B&=(A\triangle B)\triangle(A\cap B)\\
+A\setminus B&=A\cap(A\triangle B),
+\end{aligned}
+\end{equation}
+and it implies that $\varnothing\in\mathfrak{R}$ since $A\setminus A=\varnothing$.
+
+\begin{lemma}
+Given a sequence of pair-wise disjoint subsets $A_1,\dots,A_m\in\mathfrak{S}$, then there exists another sequence $A_{m+1},\dots,A_n\in\mathfrak{S}$ such that
+\begin{equation}
+A=\bigcup_{i=1}^nA_i,\quad A_i\cap A_j=\varnothing\text{ for }i\ne j. 
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The proof is based on the induction method, and the $n=1$ case valid by the definition of semi-ring. Suppose the lemma satisfies for $m=M$, and we will prove it valid for $M+1$ case. In fact, let $S_{M}=\sum_{i=1}^MA_i$, then $S_M\subseteq A$ which means that $\exists B_j,j=1,\dots,B_s$ such that
+\begin{equation}
+A=S_M\cup\sum_{j=1}^sB_j,\quad B_i\cap B_j\text{ for }i\ne j.
+\end{equation}
+Now, we set $B_{1,j}=A_{M+1}\cap B_j$, then we have a pair-wise disjointed sequence of $B_{k,j}$ such that
+\begin{equation}
+B_i=\bigcup_{k=1}^{n_i}B_{k,i},
+\end{equation}
+Then we got finally
+\begin{equation}
+A=\left(\bigcup_{i=1}^{M+1}A_i\right)\cup\left(\bigcup_{j=1}^s\bigcup_{k=2}^{n_j}B_{k,j}\right).
+\end{equation}
+\end{proof}
+
+
+
 \begin{definition}
 Given measurable spaces $(X_1,\mathfrak{S}_1)$ and $(X_2,\mathfrak{S}_2)$, a $(\mathfrak{S}_1,\mathfrak{S}_2)$-measurable functoin $F:X_1\to X_2$, and a non-negative measure $\mu$ defined on $\mathfrak{S}_1$, a \textbf{pushforward measure} $F_*\mu$ is a natural induced as
 \begin{equation}

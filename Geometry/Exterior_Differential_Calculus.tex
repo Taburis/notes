@@ -301,3 +301,32 @@ On the left side of the Eq.~\ref{proof_stockes:eq:target}
 \end{equation*}
 where only $m$th component left since the extension assumption that the $a_j$ vanishes outside $\partial D\cap U$. Hence we proved both sides of Eq.~\ref{proof_stockes:eq:target} is true.
 \end{proof}
+
+
+\subsection{Symplectic Form}
+
+\begin{definition}
+Given a smooth $2n$-dimensional manifold $M$, a exteriol differential 2-form $\omega$ is called \textbf{symplectic form} if $d^2\omega=0$ and
+\begin{equation}
+\forall\xi\in TM,\xi\ne 0,\,\exists \eta\in TM:\, \omega(\xi,\eta)\ne0.
+\end{equation}
+\end{definition}
+
+\begin{theorem}
+Consider a smooth $n$-dimensional manifold $V$ with local coordinate $\{e^i\}$, the cotangent bundle $T*V$ is a $2n$-dimensional manifold, with a local coordinate $\{e^i,de^\alpha\}$. Suppose $df\in T^*V$ with coordinate $df=p_\alpha de^\alpha+q_i e^i$, $X\in TT^*V$, and $\omega$ is an exterior differential 1-form induced by the projection $\pi$ that $\omega_{df}(X)=\langle df,\pi_*(X)\rangle$. Then $d\omega$ is a symplectic form and can be epressed as
+\begin{equation}
+\omega_{df}= \boldsymbol{p}\cdot d\boldsymbol{q},\quad d\omega_{df}=d\boldsymbol{p}\wedge d\boldsymbol{q},\quad df=p_\alpha de^\alpha+q_i e^i.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The projection $\pi:T^*V\to V$, then $\pi_*:TT^*V\to TV$. Suppose a point $df\in T^*V$ with coordinate $(\boldsymbol{p},\boldsymbol{q})$, the projection gives $\pi(df)^i=q^i$. Given a vector $X\in TT^*V$ with local coordinate $X=x^i\partial_{e_i}+x^\alpha\partial_{de_\alpha}$, then
+\begin{equation}
+\pi_*(X)=x^i\frac{\partial e^j}{\partial e^i}\partial_{e^j}+x^\alpha\frac{\partial e^k}{\partial de^\alpha}\partial_{e^k}=x^i\frac{\partial e^j}{\partial e^i}\partial_{e^j},
+\end{equation}
+and for $df=\boldsymbol{p}+\boldsymbol{q}$,
+\begin{equation}
+\langle df,\pi_*(X)\rangle = p_j x^j,
+\end{equation}
+This implies $\omega_{df}=\boldsymbol{p}\cdot d\boldsymbol{q}$. And $d\omega_{df}=d\boldsymbol{p}\wedge d\boldsymbol{q}$ is a symplectic form.
+\end{proof}

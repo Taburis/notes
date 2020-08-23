@@ -14,6 +14,7 @@
 \usepackage{amsthm}
 \usepackage{makeidx}
 \usepackage{hyperref}
+\usepackage{lipsum}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 \theoremstyle{definition}
@@ -25,6 +26,8 @@
 \theoremstyle{definition}
 \newtheorem{lemma}{Lemma}[section]
 
+\theoremstyle{definition}
+\newtheorem{law}{Law}[section]
 
 \newtheorem{corollary}{Corollary}[theorem]
 
@@ -40,3 +43,5 @@
 \def\argmax{\mathrm{Argmax\,}}
 \def\poisson{\text{Poisson}}
 \def\dim{\text{dim}}
+
+\newcommand\bsym[1]{\boldsymbol{#1}}
