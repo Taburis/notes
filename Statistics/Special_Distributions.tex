@@ -1,6 +1,22 @@
 
 \section{Distributions}
 
+\subsection{Binomial Distribution}
+
+\subsection{Hypergeometric Distribution}
+\begin{definition}
+Consider $m$ times sampling from a set with $n$ elements, satisfying the following conditions:
+\begin{itemize}
+\item The sample space can be classified into 2 mutually exclusive groups (no overlapping), and for convenience, we assume the first group is the group of interest.
+\item No replacement during sampling,
+\end{itemize}
+then the random variable $X$ denoting the number of getting $k$ samples from the interest group is obey the hypergeometric distribution $\text{Hypergeometric(n,h,m)}$:
+\begin{equation}
+\text{Pr}(X=k)=\frac{\binom{h}{k}\binom{n-h}{m-k}}{\binom{n}{m}},
+\end{equation}
+where the $h$ is the sample size of the interest group in the sample space.
+\end{definition}
+
 \subsection{Poisson Distribution}
 \begin{definition}[Poisson assumption]
 Assume a integer valued random variable $K$ with a PDF $g(k,h)$ where an parameter $h$ satisfying the following assumption when $h\to 0$:
@@ -64,7 +80,7 @@ A \textbf{normal distribution} with mean $\mu$ and variance $\sigma^2$, denoted 
 N(\mu,\sigma^2)(x) = \frac{1}{\sqrt{2\pi}\sigma^2}\exp\left\{-\frac{(x-\mu)^2}{2\sigma^2}\right\}.
 \end{equation}
 If a random variable $X\sim N(\mu,\sigma^2)$, this variable is called \textbf{Gaussian}. And we call $X$ as \textbf{standard normal} variable if $X\sim N(0,1)$.
-A random varialbe $Y$ is called n-dimensional Gassian random variable if $\boldsymbol{X}=(X_1,X_2,...,X_n)$, where $X_i\sim N(\mu_i,\sigma_i^2)$ and $X_i\ci X_j,\forall i\ne j$.
+A random varialbe $Y$ is called n-dimensional Gaussian random variable if $\boldsymbol{X}=(X_1,X_2,...,X_n)$, where $X_i\sim N(\mu_i,\sigma_i^2)$ and $X_i\ci X_j,\forall i\ne j$.
 \end{definition}
 
 \begin{theorem} 

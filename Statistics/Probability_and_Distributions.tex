@@ -2,6 +2,17 @@
 %\section{Probability and Distribution}
 \section{General Probability Theory}
 
+\subsection{Arrangement and Combination}
+Given a set containing $n$ distinguishable elements, the number of possible distinguishable results after $m$ sampling over this set is given by the binomial coefficient $\binom{n}{m}$:
+\begin{equation}
+\binom{n}{m}=\frac{n!}{m!(n-m)!}.
+\end{equation}
+This coefficient satisfies the following equations
+\begin{itemize}
+\item $\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1}$.
+\item $\sum_{k=0}^n\binom{n}{k}=2^n$.
+\end{itemize}
+
 \subsection{Random Variables}
 \begin{definition}\index{Probability Space}
 A \textbf{probability space} $(\Omega,\mathfrak{R},\mathbb{P})$ is a triple of a set $\Omega$ and $\sigma$-additive measure $\mathbb{P}$ with domain $\mathfrak{R}$, a $\sigma$-algebra defined on $\Omega$, satisfying $\mathbb{P}(\Omega) = 1$ and $\mathbb{P}(\varnothing)=0$.
