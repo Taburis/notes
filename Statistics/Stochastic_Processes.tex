@@ -71,9 +71,9 @@ where $\max(dt)$ is the maximum of $t_i-t_{i-1}$, for all $i=1,2,\dots$. Then
 \begin{proof}
 It is easy to verify the following equation by using the definition $\var D(t_i)=t_i-t_{i-1}$:
 \begin{equation}
-\expect \int_0^T[dD(t)]^2=T,
+\expect \sum_{i=0}^N[D(t_i)]^2\Big|^{t_N=T}_{t_0=0}=T,
 \end{equation}
-then the proof left is to show $\var\left(\int_0^T[dD(t)]^2\right)=0$. Note that
+then the proof left is to show $\var\left(\int_0^T[dW(t)]^2\right)=0$. Note that
 \begin{equation*}
 \begin{aligned}
 &\var\int_0^T[dW(t)]^2=\expect\left(\int_0^T[dW(t)]^2-T\right)^2,\\

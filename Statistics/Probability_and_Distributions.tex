@@ -3,15 +3,28 @@
 \section{General Probability Theory}
 
 \subsection{Arrangement and Combination}
-Given a set containing $n$ distinguishable elements, the number of possible distinguishable results after $m$ sampling over this set is given by the binomial coefficient $\binom{n}{m}$:
+The classical arrangement and combination problems and be classified into the following cases:
+\begin{enumerate}
+\item \label{c:case1} Given a set containing $n$ distinguishable elements, the number of possible distinguishable results after $m$ sampling over this set is given by the binomial coefficient $C_n^m=\binom{n}{m}$:
 \begin{equation}
 \binom{n}{m}=\frac{n!}{m!(n-m)!}.
 \end{equation}
 This coefficient satisfies the following equations
+\begin{equation}
+\begin{aligned}
+&\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1},\\
+&\sum_{k=0}^n\binom{n}{k}=2^n.
+\end{aligned}
+\end{equation}
+
+\item Group problem: Distributing $n$ elements grouped into $m$ groups, the number of possible combinations can be classified into the following situations:
 \begin{itemize}
-\item $\binom{n}{k}=\binom{n-1}{k}+\binom{n-1}{k-1}$.
-\item $\sum_{k=0}^n\binom{n}{k}=2^n$.
-\end{itemize}
+	\item distinguishable elements and distinguishable group: $m^n$.
+	\item equivalent elements and non-empty distinguishable group: $\binom{n-1}{m-1}, m\le n$.
+	\item equivalent elements and distingusuable group: $\binom{n+m-1}{m-1}$.
+\end{itemize}}
+\end{enumerate}
+
 
 \subsection{Random Variables}
 \begin{definition}\index{Probability Space}

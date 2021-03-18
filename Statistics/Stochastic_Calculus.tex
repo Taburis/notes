@@ -43,9 +43,9 @@ and the continuity is the consequence from the fact that $\lim_{dt\to0}dW(t)\to 
 \end{proof}
 
 \begin{theorem}
-Let $f(x,t)$ be a function for which the partial derivatives $f_t,f_x$ and $f_{xx}$ are defined and continuous, and let $W(t)$ be a Brownian motion. Then, for every $T\ge0$, then
+Let $f(x,t)$ be a function for which the partial derivatives $f_t,f_x$ and $f_{xx}$ are defined and continuous, and let $W(t)$ be a Brownian motion. Then, for every $T\ge0$:
 \begin{widetext}
-\begin{equation}
+\begin{equation}\label{eq:ito_doeblin_formula}
 f(T,W(T))=f(0,W(0))+\int_0^T f_t(t,W(t))dt+\int_0^Tf_x(t,W(t))dW(t)+\frac{1}{2}\int_0^Tf_{xx}(t,W(t))dt.
 \end{equation}
 \end{widetext}
@@ -54,10 +54,16 @@ f(T,W(T))=f(0,W(0))+\int_0^T f_t(t,W(t))dt+\int_0^Tf_x(t,W(t))dW(t)+\frac{1}{2}\
 \begin{proof}
 By the Taylor expansion of $f$,
 \begin{equation}
-df=\partial_t f dt+\partial_xfdx+\frac{1}{2}\partial_{xx}f(dx)^2+\cdots,
+df=\partial_t f dt+\partial_xfdx+\frac{1}{2}\partial_{xx}f(dx)^2+o(dt,dx),
 \end{equation}
-then the integral will be equation to the summation of the left side
+and substitute the $x$ by a function $W(T)$, this variation is valid as well:
 \begin{equation}
-f(T,X)-f(T_0,X_0)=\int_{T_0}^T\partial_t f dt
+\begin{aligned}
+df(t,W)=&f_t(t,W)dt+f_x(t,W)dW\\
+&+\frac{1}{2}f_{xx}(t,W)(dW)^2+o[dt,(dW)^2],
+\end{aligned}
 \end{equation}
+and we proved $(dW)^2\to dt$ almost surely, and hence, we proved the Equation~\ref{eq:ito_doeblin_formula} hold almost surely.
 \end{proof}
+
+The It\^{o}-Doeblin formula can also be used to calcualte the I\^{o} integral.
